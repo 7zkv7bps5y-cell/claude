@@ -4,7 +4,7 @@
 
 ## 現在の状況
 
-**設計提案段階（承認待ち）** — まだ実装コードはありません。
+**設計提案 v1.0（再レビュー待ち）** — まだ実装コードはありません。
 
 - 設計提案書：[docs/design/00-design-proposal.md](docs/design/00-design-proposal.md)
 
