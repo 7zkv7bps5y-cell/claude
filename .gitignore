@@ -1,0 +1,13 @@
+node_modules/
+dist/
+web-build/
+.expo/
+*.log
+.env
+.env.local
+coverage/
+# Expo CNG（ネイティブフォルダは自動生成するためコミットしない）
+apps/mobile/ios/
+apps/mobile/android/
+# 一時ファイル
+.tmp/

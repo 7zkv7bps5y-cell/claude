@@ -1,0 +1,19 @@
+{
+  "name": "facility-navigation",
+  "private": true,
+  "version": "0.1.0",
+  "description": "施設型マップ・屋内ナビゲーション PoC（モノレポ）",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspace @facility-nav/core && npm run test --workspace @facility-nav/sample-data",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "gen:seed": "node packages/sample-data/scripts/generate-seed.mjs",
+    "mobile": "npm run start --workspace mobile"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

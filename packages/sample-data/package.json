@@ -1,0 +1,21 @@
+{
+  "name": "@facility-nav/sample-data",
+  "version": "0.1.0",
+  "private": true,
+  "description": "【サンプル】架空の施設データ（開発・テスト専用。実データではありません）",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "node scripts/build-sample.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@facility-nav/core": "0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.0"
+  }
+}
