@@ -1,0 +1,49 @@
+# 自動テスト（GitHub に push するたびに実行されます）
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  logic-and-app:
+    name: 共通ロジックのテスト・型チェック・アプリのビルド確認
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: サンプルデータ・seed.sql が最新か確認
+        run: |
+          npm run build --workspace @facility-nav/sample-data
+          npm run gen:seed
+          git diff --exit-code -- packages/sample-data/src/sample-facility.json supabase/seed.sql
+      - name: 単体テスト
+        run: npm test
+      - name: 型チェック
+        run: npm run typecheck
+      - name: アプリのビルド確認（Web / iOS 向けバンドル）
+        working-directory: apps/mobile
+        env:
+          EXPO_OFFLINE: '1'
+        run: |
+          npx expo export --platform web --output-dir /tmp/web-dist
+          npx expo export --platform ios --output-dir /tmp/ios-dist
+
+  database:
+    name: データベース定義と権限のテスト
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: PostgreSQL 16 と pgTAP を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-16 postgresql-16-pgtap
+      - name: DBテスト
+        run: sudo env PGBIN=/usr/lib/postgresql/16/bin bash scripts/db-test.sh

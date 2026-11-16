@@ -1,0 +1,8 @@
+{
+  "name": "facility-nav-verify",
+  "private": true,
+  "description": "Phase 1A の画面通し検証用ツール（アプリ本体には含まれません）",
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}
