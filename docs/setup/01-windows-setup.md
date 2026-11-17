@@ -143,6 +143,7 @@ Expo Go は、PC と iPhone の両方で**同じ Expo アカウントにログ�
 | QRコードを読んでも「接続できません」 | PC と iPhone が同じ Wi-Fi か確認。会社や施設の Wi-Fi は端末間の通信が禁止されていることがあります。その場合は Ctrl + C で止めて、`npm run mobile -- --tunnel` で起動し直す（初回は追加の部品の導入を聞かれるので `y`） |
 | 「Project is incompatible with this version of Expo Go」 | App Store で Expo Go を最新版に更新する。それでも出る場合は Claude に画面の文言を伝えてください |
 | 「You need to be signed in to Expo Go and Expo CLI…」 | 上の 4-2b のとおり、PC と iPhone で同じ Expo アカウントにログイン。iPhone の画面で「Try Again」 |
+| 「npx.ps1 cannot be loaded because running scripts is disabled」（`npm.ps1` も同様） | Windows の PowerShell の安全設定によるものです。`npx` を **`npx.cmd`** に、`npm` を **`npm.cmd`** に置き換えて実行してください（例：`npx.cmd expo login`）。毎回の置き換えが面倒な場合は、ターミナルで `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` を1回実行（確認が出たら `Y`）すると、以降は `npx` のままで使えます |
 | 「An update for expo is available」 | お知らせです。動作には影響しないので、そのまま進めて大丈夫です |
 | 画面が真っ白／赤いエラー画面 | 赤い画面の文言をスクリーンショットで Claude に送ってください |
 | 止めたいとき | ターミナルで Ctrl + C |
