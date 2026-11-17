@@ -117,6 +117,19 @@ npm run mobile
 - しばらくすると、ターミナルに大きな **QRコード** が表示されます
 - 「Windows セキュリティの重要な警告（ファイアウォール）」が出たら、「**プライベート ネットワーク**」にチェックして「アクセスを許可する」
 
+### 4-2b. Expo アカウントでログインする（初回のみ・無料）
+
+Expo Go は、PC と iPhone の両方で**同じ Expo アカウントにログインしていないと開けません**（Expo Go 57 以降の仕様）。
+
+1. https://expo.dev/signup で無料アカウントを作成（メールアドレスまたは GitHub アカウント。クレジットカード不要）
+2. PC の VS Code のターミナルで（アプリを起動中なら Ctrl + C で止めてから）：
+   ```
+   npx expo login
+   ```
+   ユーザー名（またはメールアドレス）とパスワードを入力。`npx expo whoami` でユーザー名が表示されれば成功
+3. iPhone の Expo Go を開き、右上の人型アイコン（アカウント）から**同じアカウント**でログイン
+4. もう一度 `npm run mobile` で起動し、QR コードを読み取る
+
 ### 4-3. iPhone で読み取る
 
 1. iPhone の**標準カメラ**で、PC画面の QR コードを写す
@@ -129,6 +142,8 @@ npm run mobile
 |---|---|
 | QRコードを読んでも「接続できません」 | PC と iPhone が同じ Wi-Fi か確認。会社や施設の Wi-Fi は端末間の通信が禁止されていることがあります。その場合は Ctrl + C で止めて、`npm run mobile -- --tunnel` で起動し直す（初回は追加の部品の導入を聞かれるので `y`） |
 | 「Project is incompatible with this version of Expo Go」 | App Store で Expo Go を最新版に更新する。それでも出る場合は Claude に画面の文言を伝えてください |
+| 「You need to be signed in to Expo Go and Expo CLI…」 | 上の 4-2b のとおり、PC と iPhone で同じ Expo アカウントにログイン。iPhone の画面で「Try Again」 |
+| 「An update for expo is available」 | お知らせです。動作には影響しないので、そのまま進めて大丈夫です |
 | 画面が真っ白／赤いエラー画面 | 赤い画面の文言をスクリーンショットで Claude に送ってください |
 | 止めたいとき | ターミナルで Ctrl + C |
 
