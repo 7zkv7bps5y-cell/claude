@@ -163,3 +163,14 @@ describe('FacilityDataSync（施設データのオフライン保存）', () => 
     expect(a.bundleCalls).toBe(0);
   });
 });
+
+describe('isOpenNow（営業中の判定）', () => {
+  it('営業時間内・外・日またぎ・解釈不能', async () => {
+    const { isOpenNow } = await import('../src');
+    const at = (h: number, m = 0) => new Date(2026, 10, 18, h, m);
+    expect(isOpenNow('10:00〜20:00', at(12))).toBe(true);
+    expect(isOpenNow('10:00〜20:00', at(20))).toBe(false);
+    expect(isOpenNow('18:00〜2:00', at(1))).toBe(true);
+    expect(isOpenNow('定休日', at(12))).toBeNull();
+  });
+});

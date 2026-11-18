@@ -5,8 +5,8 @@
     "name": "【サンプル】テストモール",
     "isSample": true,
     "origin": {
-      "lat": 35,
-      "lng": 135
+      "lat": 35.7012,
+      "lng": 139.3955
     },
     "rotationDeg": 0,
     "freshness": {
@@ -15,148 +15,79 @@
       "highSeverityRestrictMinutes": 60,
       "restrictMode": "confirm",
       "eventMode": false
-    }
+    },
+    "boundary": [
+      [
+        -20,
+        -65
+      ],
+      [
+        180,
+        -65
+      ],
+      [
+        180,
+        85
+      ],
+      [
+        -20,
+        85
+      ]
+    ],
+    "mainEntranceNodeId": "ent-south",
+    "address": "（架空の施設のため住所はありません）"
   },
   "version": {
     "versionNo": 1,
-    "publishedAt": "2026-11-16T00:00:00.000Z"
+    "publishedAt": "2026-11-18T00:00:00.000Z"
   },
   "floors": [
     {
       "id": "00000000-0000-4000-8000-000000000101",
       "level": 1,
       "name": "1F"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000102",
+      "level": 2,
+      "name": "2F"
     }
   ],
   "features": [
     {
-      "id": "w-west-1",
+      "id": "1F-building",
       "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
+      "kind": "building",
       "geometry": {
-        "type": "LineString",
+        "type": "Polygon",
         "coordinates": [
           [
-            0,
-            0
-          ],
-          [
-            0,
-            13.5
+            [
+              0,
+              0
+            ],
+            [
+              160,
+              0
+            ],
+            [
+              160,
+              70
+            ],
+            [
+              0,
+              70
+            ],
+            [
+              0,
+              0
+            ]
           ]
         ]
       }
     },
     {
-      "id": "w-west-2",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            0,
-            16.5
-          ],
-          [
-            0,
-            30
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-east-1",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            60,
-            0
-          ],
-          [
-            60,
-            13.5
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-east-2",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            60,
-            16.5
-          ],
-          [
-            60,
-            30
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-north",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            0,
-            30
-          ],
-          [
-            60,
-            30
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-south-1",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            0,
-            0
-          ],
-          [
-            28.5,
-            0
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-south-2",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.5,
-            0
-          ],
-          [
-            60,
-            0
-          ]
-        ]
-      }
-    },
-    {
-      "id": "corridor-main",
+      "id": "1F-mall",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "corridor",
       "geometry": {
@@ -165,62 +96,189 @@
           [
             [
               0,
-              12
+              30
             ],
             [
-              27,
-              12
+              72,
+              30
             ],
             [
-              27,
+              72,
               0
             ],
             [
-              33,
+              88,
               0
             ],
             [
-              33,
-              12
+              88,
+              30
             ],
             [
-              60,
-              12
+              160,
+              30
             ],
             [
-              60,
-              18
+              160,
+              40
             ],
             [
-              33,
-              18
+              88,
+              40
             ],
             [
-              33,
-              26
+              88,
+              70
             ],
             [
-              27,
-              26
+              72,
+              70
             ],
             [
-              27,
-              18
-            ],
-            [
-              0,
-              18
+              72,
+              40
             ],
             [
               0,
-              12
+              40
+            ],
+            [
+              0,
+              30
             ]
+          ]
+        ]
+      },
+      "name": "センターコート"
+    },
+    {
+      "id": "1F-w-west-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            31.5
           ]
         ]
       }
     },
     {
-      "id": "unit-A",
+      "id": "1F-w-west-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            38.5
+          ],
+          [
+            0,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-east-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            160,
+            0
+          ],
+          [
+            160,
+            31.5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-east-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            160,
+            38.5
+          ],
+          [
+            160,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-south-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            0
+          ],
+          [
+            76.5,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-south-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            83.5,
+            0
+          ],
+          [
+            160,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-north",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            70
+          ],
+          [
+            160,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "unit-1F-N1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -229,32 +287,32 @@
           [
             [
               0,
-              18
+              40
             ],
             [
-              13,
-              18
+              14.4,
+              40
             ],
             [
-              13,
-              30
-            ],
-            [
-              0,
-              30
+              14.4,
+              70
             ],
             [
               0,
-              18
+              70
+            ],
+            [
+              0,
+              40
             ]
           ]
         ]
       },
       "name": "ブックス・サンプル",
-      "storeId": "store-A"
+      "storeId": "store-1F-N1"
     },
     {
-      "id": "w-front-A-1",
+      "id": "w-front-1F-N1-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
@@ -262,48 +320,48 @@
         "coordinates": [
           [
             0,
-            18
+            40
           ],
           [
-            5,
-            18
+            5.45,
+            40
           ]
         ]
       }
     },
     {
-      "id": "w-front-A-2",
+      "id": "w-front-1F-N1-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            8,
-            18
+            8.95,
+            40
           ],
           [
-            13,
-            18
+            14.4,
+            40
           ]
         ]
       }
     },
     {
-      "id": "door-A",
+      "id": "door-1F-N1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5,
-          18
+          7.2,
+          40
         ]
       },
-      "storeId": "store-A"
+      "storeId": "store-1F-N1"
     },
     {
-      "id": "unit-B",
+      "id": "unit-1F-N2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -311,82 +369,82 @@
         "coordinates": [
           [
             [
-              13,
-              18
+              14.4,
+              40
             ],
             [
-              27,
-              18
+              28.8,
+              40
             ],
             [
-              27,
-              30
+              28.8,
+              70
             ],
             [
-              13,
-              30
+              14.4,
+              70
             ],
             [
-              13,
-              18
+              14.4,
+              40
             ]
           ]
         ]
       },
       "name": "カフェ・テスト",
-      "storeId": "store-B"
+      "storeId": "store-1F-N2"
     },
     {
-      "id": "w-front-B-1",
+      "id": "w-front-1F-N2-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            13,
-            18
+            14.4,
+            40
           ],
           [
-            18.5,
-            18
+            19.85,
+            40
           ]
         ]
       }
     },
     {
-      "id": "w-front-B-2",
+      "id": "w-front-1F-N2-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            21.5,
-            18
+            23.35,
+            40
           ],
           [
-            27,
-            18
+            28.8,
+            40
           ]
         ]
       }
     },
     {
-      "id": "door-B",
+      "id": "door-1F-N2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20,
-          18
+          21.6,
+          40
         ]
       },
-      "storeId": "store-B"
+      "storeId": "store-1F-N2"
     },
     {
-      "id": "unit-C",
+      "id": "unit-1F-N3",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -394,82 +452,82 @@
         "coordinates": [
           [
             [
-              33,
-              18
+              28.8,
+              40
             ],
             [
-              46,
-              18
+              43.2,
+              40
             ],
             [
-              46,
-              30
+              43.2,
+              70
             ],
             [
-              33,
-              30
+              28.8,
+              70
             ],
             [
-              33,
-              18
+              28.8,
+              40
             ]
           ]
         ]
       },
-      "name": "ファッション・デモ",
-      "storeId": "store-C"
+      "name": "ドラッグ・モック",
+      "storeId": "store-1F-N3"
     },
     {
-      "id": "w-front-C-1",
+      "id": "w-front-1F-N3-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            33,
-            18
+            28.8,
+            40
           ],
           [
-            38,
-            18
+            34.25,
+            40
           ]
         ]
       }
     },
     {
-      "id": "w-front-C-2",
+      "id": "w-front-1F-N3-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            41,
-            18
+            37.75,
+            40
           ],
           [
-            46,
-            18
+            43.2,
+            40
           ]
         ]
       }
     },
     {
-      "id": "door-C",
+      "id": "door-1F-N3",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.5,
-          18
+          36,
+          40
         ]
       },
-      "storeId": "store-C"
+      "storeId": "store-1F-N3"
     },
     {
-      "id": "unit-D",
+      "id": "unit-1F-N4",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -477,82 +535,760 @@
         "coordinates": [
           [
             [
-              46,
-              18
+              43.2,
+              40
             ],
             [
-              60,
-              18
+              57.6,
+              40
             ],
             [
-              60,
-              30
+              57.6,
+              70
             ],
             [
-              46,
-              30
+              43.2,
+              70
             ],
             [
-              46,
-              18
+              43.2,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "フラワー・デモ",
+      "storeId": "store-1F-N4"
+    },
+    {
+      "id": "w-front-1F-N4-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            40
+          ],
+          [
+            48.65,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N4-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            52.15,
+            40
+          ],
+          [
+            57.6,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          50.4,
+          40
+        ]
+      },
+      "storeId": "store-1F-N4"
+    },
+    {
+      "id": "unit-1F-N5",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              57.6,
+              40
+            ],
+            [
+              72,
+              40
+            ],
+            [
+              72,
+              70
+            ],
+            [
+              57.6,
+              70
+            ],
+            [
+              57.6,
+              40
             ]
           ]
         ]
       },
       "name": "ベーカリー・ダミー",
-      "storeId": "store-D"
+      "storeId": "store-1F-N5"
     },
     {
-      "id": "w-front-D-1",
+      "id": "w-front-1F-N5-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            46,
-            18
+            57.6,
+            40
           ],
           [
-            51.5,
-            18
+            63.05,
+            40
           ]
         ]
       }
     },
     {
-      "id": "w-front-D-2",
+      "id": "w-front-1F-N5-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            54.5,
-            18
+            66.55,
+            40
           ],
           [
-            60,
-            18
+            72,
+            40
           ]
         ]
       }
     },
     {
-      "id": "door-D",
+      "id": "door-1F-N5",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          53,
-          18
+          64.8,
+          40
         ]
       },
-      "storeId": "store-D"
+      "storeId": "store-1F-N5"
     },
     {
-      "id": "unit-E",
+      "id": "unit-1F-N6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88,
+              40
+            ],
+            [
+              102.4,
+              40
+            ],
+            [
+              102.4,
+              70
+            ],
+            [
+              88,
+              70
+            ],
+            [
+              88,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "雑貨店モック",
+      "storeId": "store-1F-N6"
+    },
+    {
+      "id": "w-front-1F-N6-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            40
+          ],
+          [
+            93.45,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N6-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            96.95,
+            40
+          ],
+          [
+            102.4,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.2,
+          40
+        ]
+      },
+      "storeId": "store-1F-N6"
+    },
+    {
+      "id": "unit-1F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.4,
+              40
+            ],
+            [
+              116.8,
+              40
+            ],
+            [
+              116.8,
+              70
+            ],
+            [
+              102.4,
+              70
+            ],
+            [
+              102.4,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "スイーツ・サンプル",
+      "storeId": "store-1F-N7"
+    },
+    {
+      "id": "w-front-1F-N7-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            40
+          ],
+          [
+            107.85,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N7-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            111.35,
+            40
+          ],
+          [
+            116.8,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6,
+          40
+        ]
+      },
+      "storeId": "store-1F-N7"
+    },
+    {
+      "id": "unit-1F-N8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.8,
+              40
+            ],
+            [
+              131.2,
+              40
+            ],
+            [
+              131.2,
+              70
+            ],
+            [
+              116.8,
+              70
+            ],
+            [
+              116.8,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "メガネ・テスト",
+      "storeId": "store-1F-N8"
+    },
+    {
+      "id": "w-front-1F-N8-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            40
+          ],
+          [
+            122.25,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N8-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            125.75,
+            40
+          ],
+          [
+            131.2,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124,
+          40
+        ]
+      },
+      "storeId": "store-1F-N8"
+    },
+    {
+      "id": "unit-1F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              131.2,
+              40
+            ],
+            [
+              145.6,
+              40
+            ],
+            [
+              145.6,
+              70
+            ],
+            [
+              131.2,
+              70
+            ],
+            [
+              131.2,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "スマホショップ・デモ",
+      "storeId": "store-1F-N9"
+    },
+    {
+      "id": "w-front-1F-N9-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            40
+          ],
+          [
+            136.65,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N9-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.15,
+            40
+          ],
+          [
+            145.6,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.4,
+          40
+        ]
+      },
+      "storeId": "store-1F-N9"
+    },
+    {
+      "id": "unit-1F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.6,
+              40
+            ],
+            [
+              160,
+              40
+            ],
+            [
+              160,
+              70
+            ],
+            [
+              145.6,
+              70
+            ],
+            [
+              145.6,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "コスメ・ダミー",
+      "storeId": "store-1F-N10"
+    },
+    {
+      "id": "w-front-1F-N10-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            40
+          ],
+          [
+            151.05,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-N10-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            154.55,
+            40
+          ],
+          [
+            160,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.8,
+          40
+        ]
+      },
+      "storeId": "store-1F-N10"
+    },
+    {
+      "id": "1F-w-split-north-14.4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            40
+          ],
+          [
+            14.4,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-28.8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            40
+          ],
+          [
+            28.8,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-43.2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            40
+          ],
+          [
+            43.2,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-57.6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            40
+          ],
+          [
+            57.6,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-72",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72,
+            40
+          ],
+          [
+            72,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-88",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            40
+          ],
+          [
+            88,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-102.4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            40
+          ],
+          [
+            102.4,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-116.8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            40
+          ],
+          [
+            116.8,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-131.2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            40
+          ],
+          [
+            131.2,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-north-145.6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            40
+          ],
+          [
+            145.6,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "unit-1F-S1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -564,16 +1300,16 @@
               0
             ],
             [
-              13,
+              14.4,
               0
             ],
             [
-              13,
-              12
+              14.4,
+              30
             ],
             [
               0,
-              12
+              30
             ],
             [
               0,
@@ -582,11 +1318,11 @@
           ]
         ]
       },
-      "name": "雑貨店モック",
-      "storeId": "store-E"
+      "name": "スーパー・サンプル",
+      "storeId": "store-1F-S1"
     },
     {
-      "id": "w-front-E-1",
+      "id": "w-front-1F-S1-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
@@ -594,48 +1330,48 @@
         "coordinates": [
           [
             0,
-            12
+            30
           ],
           [
-            5,
-            12
+            5.45,
+            30
           ]
         ]
       }
     },
     {
-      "id": "w-front-E-2",
+      "id": "w-front-1F-S1-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            8,
-            12
+            8.95,
+            30
           ],
           [
-            13,
-            12
+            14.4,
+            30
           ]
         ]
       }
     },
     {
-      "id": "door-E",
+      "id": "door-1F-S1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5,
-          12
+          7.2,
+          30
         ]
       },
-      "storeId": "store-E"
+      "storeId": "store-1F-S1"
     },
     {
-      "id": "unit-F",
+      "id": "unit-1F-S2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -643,82 +1379,82 @@
         "coordinates": [
           [
             [
-              13,
+              14.4,
               0
             ],
             [
-              27,
+              28.8,
               0
             ],
             [
-              27,
-              12
+              28.8,
+              30
             ],
             [
-              13,
-              12
+              14.4,
+              30
             ],
             [
-              13,
+              14.4,
               0
             ]
           ]
         ]
       },
-      "name": "クリニック・サンプル",
-      "storeId": "store-F"
+      "name": "精肉テスト",
+      "storeId": "store-1F-S2"
     },
     {
-      "id": "w-front-F-1",
+      "id": "w-front-1F-S2-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            13,
-            12
+            14.4,
+            30
           ],
           [
-            18.5,
-            12
+            19.85,
+            30
           ]
         ]
       }
     },
     {
-      "id": "w-front-F-2",
+      "id": "w-front-1F-S2-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            21.5,
-            12
+            23.35,
+            30
           ],
           [
-            27,
-            12
+            28.8,
+            30
           ]
         ]
       }
     },
     {
-      "id": "door-F",
+      "id": "door-1F-S2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20,
-          12
+          21.6,
+          30
         ]
       },
-      "storeId": "store-F"
+      "storeId": "store-1F-S2"
     },
     {
-      "id": "unit-G",
+      "id": "unit-1F-S3",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -726,82 +1462,82 @@
         "coordinates": [
           [
             [
-              33,
+              28.8,
               0
             ],
             [
-              46,
+              43.2,
               0
             ],
             [
-              46,
-              12
+              43.2,
+              30
             ],
             [
-              33,
-              12
+              28.8,
+              30
             ],
             [
-              33,
+              28.8,
               0
             ]
           ]
         ]
       },
-      "name": "シューズ・テスト",
-      "storeId": "store-G"
+      "name": "鮮魚モック",
+      "storeId": "store-1F-S3"
     },
     {
-      "id": "w-front-G-1",
+      "id": "w-front-1F-S3-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            33,
-            12
+            28.8,
+            30
           ],
           [
-            38,
-            12
+            34.25,
+            30
           ]
         ]
       }
     },
     {
-      "id": "w-front-G-2",
+      "id": "w-front-1F-S3-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            41,
-            12
+            37.75,
+            30
           ],
           [
-            46,
-            12
+            43.2,
+            30
           ]
         ]
       }
     },
     {
-      "id": "door-G",
+      "id": "door-1F-S3",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.5,
-          12
+          36,
+          30
         ]
       },
-      "storeId": "store-G"
+      "storeId": "store-1F-S3"
     },
     {
-      "id": "unit-H",
+      "id": "unit-1F-S4",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "unit",
       "geometry": {
@@ -809,226 +1545,826 @@
         "coordinates": [
           [
             [
-              46,
+              43.2,
               0
             ],
             [
-              60,
+              57.6,
               0
             ],
             [
-              60,
-              12
+              57.6,
+              30
             ],
             [
-              46,
-              12
+              43.2,
+              30
             ],
             [
-              46,
+              43.2,
               0
             ]
           ]
         ]
       },
-      "name": "和食処ためし",
-      "storeId": "store-H"
+      "name": "クリーニング・デモ",
+      "storeId": "store-1F-S4"
     },
     {
-      "id": "w-front-H-1",
+      "id": "w-front-1F-S4-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            46,
-            12
+            43.2,
+            30
           ],
           [
-            51.5,
-            12
+            48.65,
+            30
           ]
         ]
       }
     },
     {
-      "id": "w-front-H-2",
+      "id": "w-front-1F-S4-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            54.5,
-            12
+            52.15,
+            30
           ],
           [
-            60,
-            12
+            57.6,
+            30
           ]
         ]
       }
     },
     {
-      "id": "door-H",
+      "id": "door-1F-S4",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          53,
-          12
+          50.4,
+          30
         ]
       },
-      "storeId": "store-H"
+      "storeId": "store-1F-S4"
     },
     {
-      "id": "w-split-n-13",
+      "id": "unit-1F-S5",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              57.6,
+              0
+            ],
+            [
+              72,
+              0
+            ],
+            [
+              72,
+              30
+            ],
+            [
+              57.6,
+              30
+            ],
+            [
+              57.6,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "ATMコーナー（サンプル）",
+      "storeId": "store-1F-S5"
+    },
+    {
+      "id": "w-front-1F-S5-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            13,
-            18
+            57.6,
+            30
           ],
           [
-            13,
+            63.05,
             30
           ]
         ]
       }
     },
     {
-      "id": "w-split-s-13",
+      "id": "w-front-1F-S5-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            13,
-            0
+            66.55,
+            30
           ],
           [
-            13,
-            12
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-split-n-27",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            27,
-            18
-          ],
-          [
-            27,
+            72,
             30
           ]
         ]
       }
     },
     {
-      "id": "w-split-s-27",
+      "id": "door-1F-S5",
       "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
+      "kind": "door",
       "geometry": {
-        "type": "LineString",
+        "type": "Point",
         "coordinates": [
-          [
-            27,
-            0
-          ],
-          [
-            27,
-            12
-          ]
+          64.8,
+          30
         ]
-      }
+      },
+      "storeId": "store-1F-S5"
     },
     {
-      "id": "w-split-n-33",
+      "id": "unit-1F-S6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88,
+              0
+            ],
+            [
+              102.4,
+              0
+            ],
+            [
+              102.4,
+              30
+            ],
+            [
+              88,
+              30
+            ],
+            [
+              88,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "キッズ・テスト",
+      "storeId": "store-1F-S6"
+    },
+    {
+      "id": "w-front-1F-S6-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            33,
-            18
+            88,
+            30
           ],
           [
-            33,
+            93.45,
             30
           ]
         ]
       }
     },
     {
-      "id": "w-split-s-33",
+      "id": "w-front-1F-S6-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            33,
-            0
+            96.95,
+            30
           ],
           [
-            33,
-            12
-          ]
-        ]
-      }
-    },
-    {
-      "id": "w-split-n-46",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "wall",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            46,
-            18
-          ],
-          [
-            46,
+            102.4,
             30
           ]
         ]
       }
     },
     {
-      "id": "w-split-s-46",
+      "id": "door-1F-S6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.2,
+          30
+        ]
+      },
+      "storeId": "store-1F-S6"
+    },
+    {
+      "id": "unit-1F-S7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.4,
+              0
+            ],
+            [
+              116.8,
+              0
+            ],
+            [
+              116.8,
+              30
+            ],
+            [
+              102.4,
+              30
+            ],
+            [
+              102.4,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "シューズ・サンプル",
+      "storeId": "store-1F-S7"
+    },
+    {
+      "id": "w-front-1F-S7-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "wall",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            46,
-            0
+            102.4,
+            30
           ],
           [
-            46,
-            12
+            107.85,
+            30
           ]
         ]
       }
     },
     {
-      "id": "toilet-1",
+      "id": "w-front-1F-S7-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            111.35,
+            30
+          ],
+          [
+            116.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-S7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6,
+          30
+        ]
+      },
+      "storeId": "store-1F-S7"
+    },
+    {
+      "id": "unit-1F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.8,
+              0
+            ],
+            [
+              131.2,
+              0
+            ],
+            [
+              131.2,
+              30
+            ],
+            [
+              116.8,
+              30
+            ],
+            [
+              116.8,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "リカー・モック",
+      "storeId": "store-1F-S8"
+    },
+    {
+      "id": "w-front-1F-S8-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            30
+          ],
+          [
+            122.25,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-S8-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            125.75,
+            30
+          ],
+          [
+            131.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124,
+          30
+        ]
+      },
+      "storeId": "store-1F-S8"
+    },
+    {
+      "id": "unit-1F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              131.2,
+              0
+            ],
+            [
+              145.6,
+              0
+            ],
+            [
+              145.6,
+              30
+            ],
+            [
+              131.2,
+              30
+            ],
+            [
+              131.2,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "クリニック・デモ",
+      "storeId": "store-1F-S9"
+    },
+    {
+      "id": "w-front-1F-S9-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            30
+          ],
+          [
+            136.65,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-S9-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.15,
+            30
+          ],
+          [
+            145.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.4,
+          30
+        ]
+      },
+      "storeId": "store-1F-S9"
+    },
+    {
+      "id": "unit-1F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.6,
+              0
+            ],
+            [
+              160,
+              0
+            ],
+            [
+              160,
+              30
+            ],
+            [
+              145.6,
+              30
+            ],
+            [
+              145.6,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "ペット・ダミー",
+      "storeId": "store-1F-S10"
+    },
+    {
+      "id": "w-front-1F-S10-1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            30
+          ],
+          [
+            151.05,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-1F-S10-2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            154.55,
+            30
+          ],
+          [
+            160,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-1F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.8,
+          30
+        ]
+      },
+      "storeId": "store-1F-S10"
+    },
+    {
+      "id": "1F-w-split-south-14.4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            0
+          ],
+          [
+            14.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-28.8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            0
+          ],
+          [
+            28.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-43.2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            0
+          ],
+          [
+            43.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-57.6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            0
+          ],
+          [
+            57.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-72",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72,
+            0
+          ],
+          [
+            72,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-88",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            0
+          ],
+          [
+            88,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-102.4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            0
+          ],
+          [
+            102.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-116.8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            0
+          ],
+          [
+            116.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-131.2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            0
+          ],
+          [
+            131.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-w-split-south-145.6",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            0
+          ],
+          [
+            145.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "1F-es-w",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "escalator",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74,
+              44
+            ],
+            [
+              77,
+              44
+            ],
+            [
+              77,
+              54
+            ],
+            [
+              74,
+              54
+            ],
+            [
+              74,
+              44
+            ]
+          ]
+        ]
+      },
+      "name": "エスカレーター"
+    },
+    {
+      "id": "1F-es-e",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "escalator",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              83,
+              44
+            ],
+            [
+              86,
+              44
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              83,
+              54
+            ],
+            [
+              83,
+              44
+            ]
+          ]
+        ]
+      },
+      "name": "エスカレーター"
+    },
+    {
+      "id": "1F-toilet",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "toilet",
       "geometry": {
@@ -1036,24 +2372,24 @@
         "coordinates": [
           [
             [
-              27,
-              26
+              72,
+              60
             ],
             [
-              29,
-              26
+              77.5,
+              60
             ],
             [
-              29,
-              30
+              77.5,
+              70
             ],
             [
-              27,
-              30
+              72,
+              70
             ],
             [
-              27,
-              26
+              72,
+              60
             ]
           ]
         ]
@@ -1061,40 +2397,7 @@
       "name": "トイレ"
     },
     {
-      "id": "stairs-1",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "stairs",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              29,
-              26
-            ],
-            [
-              31,
-              26
-            ],
-            [
-              31,
-              30
-            ],
-            [
-              29,
-              30
-            ],
-            [
-              29,
-              26
-            ]
-          ]
-        ]
-      },
-      "name": "階段"
-    },
-    {
-      "id": "elevator-1",
+      "id": "1F-elevator",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "kind": "elevator",
       "geometry": {
@@ -1102,24 +2405,24 @@
         "coordinates": [
           [
             [
-              31,
-              26
+              77.5,
+              63
             ],
             [
-              33,
-              26
+              82.5,
+              63
             ],
             [
-              33,
-              30
+              82.5,
+              70
             ],
             [
-              31,
-              30
+              77.5,
+              70
             ],
             [
-              31,
-              26
+              77.5,
+              63
             ]
           ]
         ]
@@ -1127,43 +2430,2496 @@
       "name": "エレベーター"
     },
     {
-      "id": "f-ent-west",
+      "id": "1F-stairs",
       "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "entrance",
+      "kind": "stairs",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          0,
-          15
+          [
+            [
+              82.5,
+              60
+            ],
+            [
+              88,
+              60
+            ],
+            [
+              88,
+              70
+            ],
+            [
+              82.5,
+              70
+            ],
+            [
+              82.5,
+              60
+            ]
+          ]
         ]
       },
-      "name": "西口"
+      "name": "階段"
     },
     {
-      "id": "f-ent-east",
+      "id": "1F-info",
       "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "entrance",
+      "kind": "info",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          60,
-          15
+          80,
+          20
         ]
       },
-      "name": "東口"
+      "name": "インフォメーション"
     },
     {
-      "id": "f-ent-south",
-      "floorId": "00000000-0000-4000-8000-000000000101",
-      "kind": "entrance",
+      "id": "2F-building",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "building",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              160,
+              0
+            ],
+            [
+              160,
+              70
+            ],
+            [
+              0,
+              70
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-mall",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "corridor",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0,
+              30
+            ],
+            [
+              72,
+              30
+            ],
+            [
+              72,
+              6
+            ],
+            [
+              88,
+              6
+            ],
+            [
+              88,
+              30
+            ],
+            [
+              160,
+              30
+            ],
+            [
+              160,
+              40
+            ],
+            [
+              88,
+              40
+            ],
+            [
+              88,
+              70
+            ],
+            [
+              72,
+              70
+            ],
+            [
+              72,
+              40
+            ],
+            [
+              0,
+              40
+            ],
+            [
+              0,
+              30
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-outer",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            0
+          ],
+          [
+            160,
+            0
+          ],
+          [
+            160,
+            70
+          ],
+          [
+            0,
+            70
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-north",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            70
+          ],
+          [
+            160,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "unit-2F-N1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0,
+              40
+            ],
+            [
+              14.4,
+              40
+            ],
+            [
+              14.4,
+              70
+            ],
+            [
+              0,
+              70
+            ],
+            [
+              0,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "ファッション・デモ",
+      "storeId": "store-2F-N1"
+    },
+    {
+      "id": "w-front-2F-N1-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            40
+          ],
+          [
+            5.45,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N1-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.95,
+            40
+          ],
+          [
+            14.4,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          30,
-          0
+          7.2,
+          40
         ]
       },
-      "name": "南口"
+      "storeId": "store-2F-N1"
+    },
+    {
+      "id": "unit-2F-N2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4,
+              40
+            ],
+            [
+              28.8,
+              40
+            ],
+            [
+              28.8,
+              70
+            ],
+            [
+              14.4,
+              70
+            ],
+            [
+              14.4,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "メンズ・サンプル",
+      "storeId": "store-2F-N2"
+    },
+    {
+      "id": "w-front-2F-N2-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            40
+          ],
+          [
+            19.85,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N2-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.35,
+            40
+          ],
+          [
+            28.8,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6,
+          40
+        ]
+      },
+      "storeId": "store-2F-N2"
+    },
+    {
+      "id": "unit-2F-N3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.8,
+              40
+            ],
+            [
+              43.2,
+              40
+            ],
+            [
+              43.2,
+              70
+            ],
+            [
+              28.8,
+              70
+            ],
+            [
+              28.8,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "スポーツ・テスト",
+      "storeId": "store-2F-N3"
+    },
+    {
+      "id": "w-front-2F-N3-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            40
+          ],
+          [
+            34.25,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N3-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.75,
+            40
+          ],
+          [
+            43.2,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36,
+          40
+        ]
+      },
+      "storeId": "store-2F-N3"
+    },
+    {
+      "id": "unit-2F-N4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              43.2,
+              40
+            ],
+            [
+              57.6,
+              40
+            ],
+            [
+              57.6,
+              70
+            ],
+            [
+              43.2,
+              70
+            ],
+            [
+              43.2,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "アクセサリー・モック",
+      "storeId": "store-2F-N4"
+    },
+    {
+      "id": "w-front-2F-N4-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            40
+          ],
+          [
+            48.65,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N4-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            52.15,
+            40
+          ],
+          [
+            57.6,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          50.4,
+          40
+        ]
+      },
+      "storeId": "store-2F-N4"
+    },
+    {
+      "id": "unit-2F-N5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              57.6,
+              40
+            ],
+            [
+              72,
+              40
+            ],
+            [
+              72,
+              70
+            ],
+            [
+              57.6,
+              70
+            ],
+            [
+              57.6,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "ヘアサロン・ダミー",
+      "storeId": "store-2F-N5"
+    },
+    {
+      "id": "w-front-2F-N5-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            40
+          ],
+          [
+            63.05,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N5-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            66.55,
+            40
+          ],
+          [
+            72,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.8,
+          40
+        ]
+      },
+      "storeId": "store-2F-N5"
+    },
+    {
+      "id": "unit-2F-N6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88,
+              40
+            ],
+            [
+              102.4,
+              40
+            ],
+            [
+              102.4,
+              70
+            ],
+            [
+              88,
+              70
+            ],
+            [
+              88,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "おもちゃ・サンプル",
+      "storeId": "store-2F-N6"
+    },
+    {
+      "id": "w-front-2F-N6-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            40
+          ],
+          [
+            93.45,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N6-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            96.95,
+            40
+          ],
+          [
+            102.4,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.2,
+          40
+        ]
+      },
+      "storeId": "store-2F-N6"
+    },
+    {
+      "id": "unit-2F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.4,
+              40
+            ],
+            [
+              116.8,
+              40
+            ],
+            [
+              116.8,
+              70
+            ],
+            [
+              102.4,
+              70
+            ],
+            [
+              102.4,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "家電・テスト",
+      "storeId": "store-2F-N7"
+    },
+    {
+      "id": "w-front-2F-N7-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            40
+          ],
+          [
+            107.85,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N7-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            111.35,
+            40
+          ],
+          [
+            116.8,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6,
+          40
+        ]
+      },
+      "storeId": "store-2F-N7"
+    },
+    {
+      "id": "unit-2F-N8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.8,
+              40
+            ],
+            [
+              131.2,
+              40
+            ],
+            [
+              131.2,
+              70
+            ],
+            [
+              116.8,
+              70
+            ],
+            [
+              116.8,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "インテリア・デモ",
+      "storeId": "store-2F-N8"
+    },
+    {
+      "id": "w-front-2F-N8-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            40
+          ],
+          [
+            122.25,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N8-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            125.75,
+            40
+          ],
+          [
+            131.2,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124,
+          40
+        ]
+      },
+      "storeId": "store-2F-N8"
+    },
+    {
+      "id": "unit-2F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              131.2,
+              40
+            ],
+            [
+              145.6,
+              40
+            ],
+            [
+              145.6,
+              70
+            ],
+            [
+              131.2,
+              70
+            ],
+            [
+              131.2,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "バッグ・モック",
+      "storeId": "store-2F-N9"
+    },
+    {
+      "id": "w-front-2F-N9-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            40
+          ],
+          [
+            136.65,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N9-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.15,
+            40
+          ],
+          [
+            145.6,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.4,
+          40
+        ]
+      },
+      "storeId": "store-2F-N9"
+    },
+    {
+      "id": "unit-2F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.6,
+              40
+            ],
+            [
+              160,
+              40
+            ],
+            [
+              160,
+              70
+            ],
+            [
+              145.6,
+              70
+            ],
+            [
+              145.6,
+              40
+            ]
+          ]
+        ]
+      },
+      "name": "時計・ダミー",
+      "storeId": "store-2F-N10"
+    },
+    {
+      "id": "w-front-2F-N10-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            40
+          ],
+          [
+            151.05,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-N10-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            154.55,
+            40
+          ],
+          [
+            160,
+            40
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.8,
+          40
+        ]
+      },
+      "storeId": "store-2F-N10"
+    },
+    {
+      "id": "2F-w-split-north-14.4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            40
+          ],
+          [
+            14.4,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-28.8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            40
+          ],
+          [
+            28.8,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-43.2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            40
+          ],
+          [
+            43.2,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-57.6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            40
+          ],
+          [
+            57.6,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-72",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72,
+            40
+          ],
+          [
+            72,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-88",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            40
+          ],
+          [
+            88,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-102.4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            40
+          ],
+          [
+            102.4,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-116.8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            40
+          ],
+          [
+            116.8,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-131.2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            40
+          ],
+          [
+            131.2,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-north-145.6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            40
+          ],
+          [
+            145.6,
+            70
+          ]
+        ]
+      }
+    },
+    {
+      "id": "unit-2F-S1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              14.4,
+              0
+            ],
+            [
+              14.4,
+              30
+            ],
+            [
+              0,
+              30
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "ラーメン・テスト",
+      "storeId": "store-2F-S1"
+    },
+    {
+      "id": "w-front-2F-S1-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            30
+          ],
+          [
+            5.45,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S1-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.95,
+            30
+          ],
+          [
+            14.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2,
+          30
+        ]
+      },
+      "storeId": "store-2F-S1"
+    },
+    {
+      "id": "unit-2F-S2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4,
+              0
+            ],
+            [
+              28.8,
+              0
+            ],
+            [
+              28.8,
+              30
+            ],
+            [
+              14.4,
+              30
+            ],
+            [
+              14.4,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "うどん・サンプル",
+      "storeId": "store-2F-S2"
+    },
+    {
+      "id": "w-front-2F-S2-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            30
+          ],
+          [
+            19.85,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S2-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.35,
+            30
+          ],
+          [
+            28.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6,
+          30
+        ]
+      },
+      "storeId": "store-2F-S2"
+    },
+    {
+      "id": "unit-2F-S3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.8,
+              0
+            ],
+            [
+              43.2,
+              0
+            ],
+            [
+              43.2,
+              30
+            ],
+            [
+              28.8,
+              30
+            ],
+            [
+              28.8,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "カレー・デモ",
+      "storeId": "store-2F-S3"
+    },
+    {
+      "id": "w-front-2F-S3-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            30
+          ],
+          [
+            34.25,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S3-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.75,
+            30
+          ],
+          [
+            43.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36,
+          30
+        ]
+      },
+      "storeId": "store-2F-S3"
+    },
+    {
+      "id": "unit-2F-S4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              43.2,
+              0
+            ],
+            [
+              57.6,
+              0
+            ],
+            [
+              57.6,
+              30
+            ],
+            [
+              43.2,
+              30
+            ],
+            [
+              43.2,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "バーガー・ダミー",
+      "storeId": "store-2F-S4"
+    },
+    {
+      "id": "w-front-2F-S4-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            30
+          ],
+          [
+            48.65,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S4-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            52.15,
+            30
+          ],
+          [
+            57.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          50.4,
+          30
+        ]
+      },
+      "storeId": "store-2F-S4"
+    },
+    {
+      "id": "unit-2F-S5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              57.6,
+              0
+            ],
+            [
+              72,
+              0
+            ],
+            [
+              72,
+              30
+            ],
+            [
+              57.6,
+              30
+            ],
+            [
+              57.6,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "クレープ・モック",
+      "storeId": "store-2F-S5"
+    },
+    {
+      "id": "w-front-2F-S5-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            30
+          ],
+          [
+            63.05,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S5-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            66.55,
+            30
+          ],
+          [
+            72,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.8,
+          30
+        ]
+      },
+      "storeId": "store-2F-S5"
+    },
+    {
+      "id": "unit-2F-S6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88,
+              0
+            ],
+            [
+              102.4,
+              0
+            ],
+            [
+              102.4,
+              30
+            ],
+            [
+              88,
+              30
+            ],
+            [
+              88,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "和食処ためし",
+      "storeId": "store-2F-S6"
+    },
+    {
+      "id": "w-front-2F-S6-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            30
+          ],
+          [
+            93.45,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S6-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            96.95,
+            30
+          ],
+          [
+            102.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.2,
+          30
+        ]
+      },
+      "storeId": "store-2F-S6"
+    },
+    {
+      "id": "unit-2F-S7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.4,
+              0
+            ],
+            [
+              116.8,
+              0
+            ],
+            [
+              116.8,
+              30
+            ],
+            [
+              102.4,
+              30
+            ],
+            [
+              102.4,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "イタリアン・サンプル",
+      "storeId": "store-2F-S7"
+    },
+    {
+      "id": "w-front-2F-S7-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            30
+          ],
+          [
+            107.85,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S7-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            111.35,
+            30
+          ],
+          [
+            116.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6,
+          30
+        ]
+      },
+      "storeId": "store-2F-S7"
+    },
+    {
+      "id": "unit-2F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.8,
+              0
+            ],
+            [
+              131.2,
+              0
+            ],
+            [
+              131.2,
+              30
+            ],
+            [
+              116.8,
+              30
+            ],
+            [
+              116.8,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "中華・テスト",
+      "storeId": "store-2F-S8"
+    },
+    {
+      "id": "w-front-2F-S8-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            30
+          ],
+          [
+            122.25,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S8-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            125.75,
+            30
+          ],
+          [
+            131.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124,
+          30
+        ]
+      },
+      "storeId": "store-2F-S8"
+    },
+    {
+      "id": "unit-2F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              131.2,
+              0
+            ],
+            [
+              145.6,
+              0
+            ],
+            [
+              145.6,
+              30
+            ],
+            [
+              131.2,
+              30
+            ],
+            [
+              131.2,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "回転寿司・デモ",
+      "storeId": "store-2F-S9"
+    },
+    {
+      "id": "w-front-2F-S9-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            30
+          ],
+          [
+            136.65,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S9-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.15,
+            30
+          ],
+          [
+            145.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.4,
+          30
+        ]
+      },
+      "storeId": "store-2F-S9"
+    },
+    {
+      "id": "unit-2F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "unit",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.6,
+              0
+            ],
+            [
+              160,
+              0
+            ],
+            [
+              160,
+              30
+            ],
+            [
+              145.6,
+              30
+            ],
+            [
+              145.6,
+              0
+            ]
+          ]
+        ]
+      },
+      "name": "カラオケ・ダミー",
+      "storeId": "store-2F-S10"
+    },
+    {
+      "id": "w-front-2F-S10-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            30
+          ],
+          [
+            151.05,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w-front-2F-S10-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            154.55,
+            30
+          ],
+          [
+            160,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "door-2F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "door",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.8,
+          30
+        ]
+      },
+      "storeId": "store-2F-S10"
+    },
+    {
+      "id": "2F-w-split-south-14.4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            14.4,
+            0
+          ],
+          [
+            14.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-28.8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.8,
+            0
+          ],
+          [
+            28.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-43.2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.2,
+            0
+          ],
+          [
+            43.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-57.6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            57.6,
+            0
+          ],
+          [
+            57.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-72",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72,
+            0
+          ],
+          [
+            72,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-88",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88,
+            0
+          ],
+          [
+            88,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-102.4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            102.4,
+            0
+          ],
+          [
+            102.4,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-116.8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            116.8,
+            0
+          ],
+          [
+            116.8,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-131.2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.2,
+            0
+          ],
+          [
+            131.2,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-w-split-south-145.6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            145.6,
+            0
+          ],
+          [
+            145.6,
+            30
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-es-w",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "escalator",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74,
+              44
+            ],
+            [
+              77,
+              44
+            ],
+            [
+              77,
+              54
+            ],
+            [
+              74,
+              54
+            ],
+            [
+              74,
+              44
+            ]
+          ]
+        ]
+      },
+      "name": "エスカレーター"
+    },
+    {
+      "id": "2F-es-e",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "escalator",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              83,
+              44
+            ],
+            [
+              86,
+              44
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              83,
+              54
+            ],
+            [
+              83,
+              44
+            ]
+          ]
+        ]
+      },
+      "name": "エスカレーター"
+    },
+    {
+      "id": "2F-toilet",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "toilet",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72,
+              60
+            ],
+            [
+              77.5,
+              60
+            ],
+            [
+              77.5,
+              70
+            ],
+            [
+              72,
+              70
+            ],
+            [
+              72,
+              60
+            ]
+          ]
+        ]
+      },
+      "name": "トイレ"
+    },
+    {
+      "id": "2F-elevator",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "elevator",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.5,
+              63
+            ],
+            [
+              82.5,
+              63
+            ],
+            [
+              82.5,
+              70
+            ],
+            [
+              77.5,
+              70
+            ],
+            [
+              77.5,
+              63
+            ]
+          ]
+        ]
+      },
+      "name": "エレベーター"
+    },
+    {
+      "id": "2F-stairs",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "stairs",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              82.5,
+              60
+            ],
+            [
+              88,
+              60
+            ],
+            [
+              88,
+              70
+            ],
+            [
+              82.5,
+              70
+            ],
+            [
+              82.5,
+              60
+            ]
+          ]
+        ]
+      },
+      "name": "階段"
+    },
+    {
+      "id": "2F-foodcourt",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "facility_other",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73,
+              8
+            ],
+            [
+              87,
+              8
+            ],
+            [
+              87,
+              27
+            ],
+            [
+              73,
+              27
+            ],
+            [
+              73,
+              8
+            ]
+          ]
+        ]
+      },
+      "name": "フードコート客席"
+    },
+    {
+      "id": "2F-w-fc-s",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72,
+            6
+          ],
+          [
+            88,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2F-atrium",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "kind": "atrium",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              68,
+              33
+            ],
+            [
+              92,
+              33
+            ],
+            [
+              92,
+              37
+            ],
+            [
+              68,
+              37
+            ],
+            [
+              68,
+              33
+            ]
+          ]
+        ]
+      },
+      "name": "吹き抜け"
+    },
+    {
+      "id": "parking-south",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "kind": "parking",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10,
+              -55
+            ],
+            [
+              150,
+              -55
+            ],
+            [
+              150,
+              -12
+            ],
+            [
+              10,
+              -12
+            ],
+            [
+              10,
+              -55
+            ]
+          ]
+        ]
+      },
+      "name": "駐車場"
     }
   ],
   "categories": [
@@ -1171,689 +4927,2849 @@
       "id": "cat-food",
       "name": "飲食",
       "icon": "restaurant",
-      "color": "#F2A65A"
+      "color": "#F28C38"
     },
     {
       "id": "cat-fashion",
       "name": "ファッション",
       "icon": "shirt",
-      "color": "#8E7CC3"
+      "color": "#8B6FD6"
     },
     {
       "id": "cat-goods",
       "name": "雑貨・書籍",
       "icon": "gift",
-      "color": "#6AA84F"
+      "color": "#2FA36B"
+    },
+    {
+      "id": "cat-beauty",
+      "name": "ビューティー",
+      "icon": "sparkles",
+      "color": "#E5609A"
+    },
+    {
+      "id": "cat-grocery",
+      "name": "食品",
+      "icon": "basket",
+      "color": "#D9A400"
     },
     {
       "id": "cat-service",
       "name": "サービス",
-      "icon": "medical",
-      "color": "#5B9BD5"
+      "icon": "construct",
+      "color": "#3D8BD9"
     }
   ],
   "stores": [
     {
-      "id": "store-A",
+      "id": "store-1F-N1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-goods",
       "name": "ブックス・サンプル",
       "nameKana": "ぶっくすさんぷる",
-      "description": "【サンプル】書籍・文具を扱う架空の書店です。",
-      "openingHours": "10:00〜20:00",
-      "featureId": "unit-A",
-      "entranceNodeId": "door-A",
+      "description": "【サンプル】書籍・文具・雑誌を扱う架空の書店です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-1F-N1",
+      "entranceNodeId": "door-1F-N1",
       "isVisible": true
     },
     {
-      "id": "store-B",
+      "id": "store-1F-N2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-food",
       "name": "カフェ・テスト",
       "nameKana": "かふぇてすと",
-      "description": "【サンプル】コーヒーと軽食の架空のカフェです。",
+      "description": "【サンプル】コーヒーと焼き菓子の架空のカフェです。",
       "openingHours": "9:00〜21:00",
-      "featureId": "unit-B",
-      "entranceNodeId": "door-B",
+      "featureId": "unit-1F-N2",
+      "entranceNodeId": "door-1F-N2",
       "isVisible": true
     },
     {
-      "id": "store-C",
+      "id": "store-1F-N3",
       "floorId": "00000000-0000-4000-8000-000000000101",
-      "categoryId": "cat-fashion",
-      "name": "ファッション・デモ",
-      "nameKana": "ふぁっしょんでも",
-      "description": "【サンプル】衣料品の架空の店舗です。",
-      "openingHours": "10:00〜20:00",
-      "featureId": "unit-C",
-      "entranceNodeId": "door-C",
+      "categoryId": "cat-beauty",
+      "name": "ドラッグ・モック",
+      "nameKana": "どらっぐもっく",
+      "description": "【サンプル】医薬品・化粧品の架空のドラッグストアです。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-1F-N3",
+      "entranceNodeId": "door-1F-N3",
       "isVisible": true
     },
     {
-      "id": "store-D",
+      "id": "store-1F-N4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-goods",
+      "name": "フラワー・デモ",
+      "nameKana": "ふらわーでも",
+      "description": "【サンプル】切り花・鉢植えの架空の花屋です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-1F-N4",
+      "entranceNodeId": "door-1F-N4",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-N5",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-food",
       "name": "ベーカリー・ダミー",
       "nameKana": "べーかりーだみー",
-      "description": "【サンプル】パンの架空の店舗です。",
-      "openingHours": "8:00〜19:00",
-      "featureId": "unit-D",
-      "entranceNodeId": "door-D",
+      "description": "【サンプル】焼きたてパンの架空のベーカリーです。",
+      "openingHours": "8:00〜20:00",
+      "featureId": "unit-1F-N5",
+      "entranceNodeId": "door-1F-N5",
       "isVisible": true
     },
     {
-      "id": "store-E",
+      "id": "store-1F-N6",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-goods",
       "name": "雑貨店モック",
       "nameKana": "ざっかてんもっく",
-      "description": "【サンプル】生活雑貨の架空の店舗です。",
+      "description": "【サンプル】生活雑貨・インテリアの架空の店舗です。",
       "openingHours": "10:00〜20:00",
-      "featureId": "unit-E",
-      "entranceNodeId": "door-E",
+      "featureId": "unit-1F-N6",
+      "entranceNodeId": "door-1F-N6",
       "isVisible": true
     },
     {
-      "id": "store-F",
+      "id": "store-1F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-food",
+      "name": "スイーツ・サンプル",
+      "nameKana": "すいーつさんぷる",
+      "description": "【サンプル】ケーキ・和菓子の架空の店舗です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-1F-N7",
+      "entranceNodeId": "door-1F-N7",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-N8",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-service",
-      "name": "クリニック・サンプル",
-      "nameKana": "くりにっくさんぷる",
-      "description": "【サンプル】架空の診療所です（実在しません）。",
-      "openingHours": "9:00〜18:00（水曜休診）",
-      "featureId": "unit-F",
-      "entranceNodeId": "door-F",
+      "name": "メガネ・テスト",
+      "nameKana": "めがねてすと",
+      "description": "【サンプル】眼鏡・コンタクトの架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-1F-N8",
+      "entranceNodeId": "door-1F-N8",
       "isVisible": true
     },
     {
-      "id": "store-G",
+      "id": "store-1F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-service",
+      "name": "スマホショップ・デモ",
+      "nameKana": "すまほしょっぷでも",
+      "description": "【サンプル】携帯電話の架空のショップです。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-1F-N9",
+      "entranceNodeId": "door-1F-N9",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-beauty",
+      "name": "コスメ・ダミー",
+      "nameKana": "こすめだみー",
+      "description": "【サンプル】化粧品の架空の店舗です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-1F-N10",
+      "entranceNodeId": "door-1F-N10",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S1",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-grocery",
+      "name": "スーパー・サンプル",
+      "nameKana": "すーぱーさんぷる",
+      "description": "【サンプル】食料品の架空のスーパーマーケットです。",
+      "openingHours": "9:00〜22:00",
+      "featureId": "unit-1F-S1",
+      "entranceNodeId": "door-1F-S1",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S2",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-grocery",
+      "name": "精肉テスト",
+      "nameKana": "せいにくてすと",
+      "description": "【サンプル】精肉・惣菜の架空の店舗です。",
+      "openingHours": "9:00〜21:00",
+      "featureId": "unit-1F-S2",
+      "entranceNodeId": "door-1F-S2",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S3",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-grocery",
+      "name": "鮮魚モック",
+      "nameKana": "せんぎょもっく",
+      "description": "【サンプル】鮮魚の架空の店舗です。",
+      "openingHours": "9:00〜21:00",
+      "featureId": "unit-1F-S3",
+      "entranceNodeId": "door-1F-S3",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S4",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-service",
+      "name": "クリーニング・デモ",
+      "nameKana": "くりーにんぐでも",
+      "description": "【サンプル】クリーニングの架空の店舗です。",
+      "openingHours": "10:00〜19:00",
+      "featureId": "unit-1F-S4",
+      "entranceNodeId": "door-1F-S4",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S5",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-service",
+      "name": "ATMコーナー（サンプル）",
+      "nameKana": "えーてぃーえむこーなー",
+      "description": "【サンプル】架空のATMコーナーです。",
+      "openingHours": "8:00〜22:00",
+      "featureId": "unit-1F-S5",
+      "entranceNodeId": "door-1F-S5",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S6",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "categoryId": "cat-fashion",
-      "name": "シューズ・テスト",
-      "nameKana": "しゅーずてすと",
-      "description": "【サンプル】靴の架空の店舗です。",
+      "name": "キッズ・テスト",
+      "nameKana": "きっずてすと",
+      "description": "【サンプル】子ども服の架空の店舗です。",
       "openingHours": "10:00〜20:00",
-      "featureId": "unit-G",
-      "entranceNodeId": "door-G",
+      "featureId": "unit-1F-S6",
+      "entranceNodeId": "door-1F-S6",
       "isVisible": true
     },
     {
-      "id": "store-H",
+      "id": "store-1F-S7",
       "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-fashion",
+      "name": "シューズ・サンプル",
+      "nameKana": "しゅーずさんぷる",
+      "description": "【サンプル】靴の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-1F-S7",
+      "entranceNodeId": "door-1F-S7",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-grocery",
+      "name": "リカー・モック",
+      "nameKana": "りかーもっく",
+      "description": "【サンプル】酒類の架空の店舗です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-1F-S8",
+      "entranceNodeId": "door-1F-S8",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-service",
+      "name": "クリニック・デモ",
+      "nameKana": "くりにっくでも",
+      "description": "【サンプル】架空の診療所です（実在しません）。",
+      "openingHours": "9:00〜18:00",
+      "featureId": "unit-1F-S9",
+      "entranceNodeId": "door-1F-S9",
+      "isVisible": true
+    },
+    {
+      "id": "store-1F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "categoryId": "cat-goods",
+      "name": "ペット・ダミー",
+      "nameKana": "ぺっとだみー",
+      "description": "【サンプル】ペット用品の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-1F-S10",
+      "entranceNodeId": "door-1F-S10",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-fashion",
+      "name": "ファッション・デモ",
+      "nameKana": "ふぁっしょんでも",
+      "description": "【サンプル】レディース衣料の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N1",
+      "entranceNodeId": "door-2F-N1",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-fashion",
+      "name": "メンズ・サンプル",
+      "nameKana": "めんずさんぷる",
+      "description": "【サンプル】メンズ衣料の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N2",
+      "entranceNodeId": "door-2F-N2",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-fashion",
+      "name": "スポーツ・テスト",
+      "nameKana": "すぽーつてすと",
+      "description": "【サンプル】スポーツ用品の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N3",
+      "entranceNodeId": "door-2F-N3",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-fashion",
+      "name": "アクセサリー・モック",
+      "nameKana": "あくせさりーもっく",
+      "description": "【サンプル】アクセサリーの架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N4",
+      "entranceNodeId": "door-2F-N4",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-beauty",
+      "name": "ヘアサロン・ダミー",
+      "nameKana": "へあさろんだみー",
+      "description": "【サンプル】架空のヘアサロンです。",
+      "openingHours": "10:00〜19:00",
+      "featureId": "unit-2F-N5",
+      "entranceNodeId": "door-2F-N5",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-goods",
+      "name": "おもちゃ・サンプル",
+      "nameKana": "おもちゃさんぷる",
+      "description": "【サンプル】玩具の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N6",
+      "entranceNodeId": "door-2F-N6",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-goods",
+      "name": "家電・テスト",
+      "nameKana": "かでんてすと",
+      "description": "【サンプル】家電の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N7",
+      "entranceNodeId": "door-2F-N7",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-goods",
+      "name": "インテリア・デモ",
+      "nameKana": "いんてりあでも",
+      "description": "【サンプル】家具の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N8",
+      "entranceNodeId": "door-2F-N8",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-fashion",
+      "name": "バッグ・モック",
+      "nameKana": "ばっぐもっく",
+      "description": "【サンプル】バッグの架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N9",
+      "entranceNodeId": "door-2F-N9",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-N10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-service",
+      "name": "時計・ダミー",
+      "nameKana": "とけいだみー",
+      "description": "【サンプル】時計・修理の架空の店舗です。",
+      "openingHours": "10:00〜20:00",
+      "featureId": "unit-2F-N10",
+      "entranceNodeId": "door-2F-N10",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "ラーメン・テスト",
+      "nameKana": "らーめんてすと",
+      "description": "【サンプル】フードコート内の架空のラーメン店です。",
+      "openingHours": "11:00〜21:00",
+      "featureId": "unit-2F-S1",
+      "entranceNodeId": "door-2F-S1",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "うどん・サンプル",
+      "nameKana": "うどんさんぷる",
+      "description": "【サンプル】フードコート内の架空のうどん店です。",
+      "openingHours": "11:00〜21:00",
+      "featureId": "unit-2F-S2",
+      "entranceNodeId": "door-2F-S2",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "カレー・デモ",
+      "nameKana": "かれーでも",
+      "description": "【サンプル】フードコート内の架空のカレー店です。",
+      "openingHours": "11:00〜21:00",
+      "featureId": "unit-2F-S3",
+      "entranceNodeId": "door-2F-S3",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "バーガー・ダミー",
+      "nameKana": "ばーがーだみー",
+      "description": "【サンプル】フードコート内の架空のハンバーガー店です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-2F-S4",
+      "entranceNodeId": "door-2F-S4",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "クレープ・モック",
+      "nameKana": "くれーぷもっく",
+      "description": "【サンプル】フードコート内の架空のクレープ店です。",
+      "openingHours": "10:00〜21:00",
+      "featureId": "unit-2F-S5",
+      "entranceNodeId": "door-2F-S5",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
       "categoryId": "cat-food",
       "name": "和食処ためし",
       "nameKana": "わしょくどころためし",
-      "description": "【サンプル】和食の架空の飲食店です。",
+      "description": "【サンプル】和食の架空のレストランです。",
       "openingHours": "11:00〜22:00",
-      "featureId": "unit-H",
-      "entranceNodeId": "door-H",
+      "featureId": "unit-2F-S6",
+      "entranceNodeId": "door-2F-S6",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "イタリアン・サンプル",
+      "nameKana": "いたりあんさんぷる",
+      "description": "【サンプル】パスタ・ピザの架空のレストランです。",
+      "openingHours": "11:00〜22:00",
+      "featureId": "unit-2F-S7",
+      "entranceNodeId": "door-2F-S7",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "中華・テスト",
+      "nameKana": "ちゅうかてすと",
+      "description": "【サンプル】中華料理の架空のレストランです。",
+      "openingHours": "11:00〜22:00",
+      "featureId": "unit-2F-S8",
+      "entranceNodeId": "door-2F-S8",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-food",
+      "name": "回転寿司・デモ",
+      "nameKana": "かいてんずしでも",
+      "description": "【サンプル】架空の回転寿司店です。",
+      "openingHours": "11:00〜22:00",
+      "featureId": "unit-2F-S9",
+      "entranceNodeId": "door-2F-S9",
+      "isVisible": true
+    },
+    {
+      "id": "store-2F-S10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "categoryId": "cat-service",
+      "name": "カラオケ・ダミー",
+      "nameKana": "からおけだみー",
+      "description": "【サンプル】架空のカラオケ店です。",
+      "openingHours": "10:00〜24:00",
+      "featureId": "unit-2F-S10",
+      "entranceNodeId": "door-2F-S10",
       "isVisible": true
     }
   ],
   "nav": {
     "nodes": [
       {
-        "id": "door-A",
+        "id": "door-1F-N1",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 6.5,
-        "y": 18,
+        "x": 7.2,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-A",
+        "storeId": "store-1F-N1",
         "name": "ブックス・サンプル 入口"
       },
       {
-        "id": "in-A",
+        "id": "in-1F-N1",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 6.5,
-        "y": 24,
+        "x": 7.2,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-A"
+        "storeId": "store-1F-N1"
       },
       {
-        "id": "door-B",
+        "id": "door-1F-N2",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 20,
-        "y": 18,
+        "x": 21.6,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-B",
+        "storeId": "store-1F-N2",
         "name": "カフェ・テスト 入口"
       },
       {
-        "id": "in-B",
+        "id": "in-1F-N2",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 20,
-        "y": 24,
+        "x": 21.6,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-B"
+        "storeId": "store-1F-N2"
       },
       {
-        "id": "door-C",
+        "id": "door-1F-N3",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 39.5,
-        "y": 18,
+        "x": 36,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-C",
-        "name": "ファッション・デモ 入口"
+        "storeId": "store-1F-N3",
+        "name": "ドラッグ・モック 入口"
       },
       {
-        "id": "in-C",
+        "id": "in-1F-N3",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 39.5,
-        "y": 24,
+        "x": 36,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-C"
+        "storeId": "store-1F-N3"
       },
       {
-        "id": "door-D",
+        "id": "door-1F-N4",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 53,
-        "y": 18,
+        "x": 50.4,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-D",
+        "storeId": "store-1F-N4",
+        "name": "フラワー・デモ 入口"
+      },
+      {
+        "id": "in-1F-N4",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 50.4,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-1F-N4"
+      },
+      {
+        "id": "door-1F-N5",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 64.8,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-1F-N5",
         "name": "ベーカリー・ダミー 入口"
       },
       {
-        "id": "in-D",
+        "id": "in-1F-N5",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 53,
-        "y": 24,
+        "x": 64.8,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-D"
+        "storeId": "store-1F-N5"
       },
       {
-        "id": "door-E",
+        "id": "door-1F-N6",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 6.5,
-        "y": 12,
+        "x": 95.2,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-E",
+        "storeId": "store-1F-N6",
         "name": "雑貨店モック 入口"
       },
       {
-        "id": "in-E",
+        "id": "in-1F-N6",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 6.5,
-        "y": 6,
+        "x": 95.2,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-E"
+        "storeId": "store-1F-N6"
       },
       {
-        "id": "door-F",
+        "id": "door-1F-N7",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 20,
-        "y": 12,
+        "x": 109.6,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-F",
-        "name": "クリニック・サンプル 入口"
+        "storeId": "store-1F-N7",
+        "name": "スイーツ・サンプル 入口"
       },
       {
-        "id": "in-F",
+        "id": "in-1F-N7",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 20,
-        "y": 6,
+        "x": 109.6,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-F"
+        "storeId": "store-1F-N7"
       },
       {
-        "id": "door-G",
+        "id": "door-1F-N8",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 39.5,
-        "y": 12,
+        "x": 124,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-G",
-        "name": "シューズ・テスト 入口"
+        "storeId": "store-1F-N8",
+        "name": "メガネ・テスト 入口"
       },
       {
-        "id": "in-G",
+        "id": "in-1F-N8",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 39.5,
-        "y": 6,
+        "x": 124,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-G"
+        "storeId": "store-1F-N8"
       },
       {
-        "id": "door-H",
+        "id": "door-1F-N9",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 53,
-        "y": 12,
+        "x": 138.4,
+        "y": 40,
         "kind": "store_entrance",
-        "storeId": "store-H",
-        "name": "和食処ためし 入口"
+        "storeId": "store-1F-N9",
+        "name": "スマホショップ・デモ 入口"
       },
       {
-        "id": "in-H",
+        "id": "in-1F-N9",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 53,
-        "y": 6,
+        "x": 138.4,
+        "y": 52,
         "kind": "normal",
-        "storeId": "store-H"
+        "storeId": "store-1F-N9"
+      },
+      {
+        "id": "door-1F-N10",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 152.8,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-1F-N10",
+        "name": "コスメ・ダミー 入口"
+      },
+      {
+        "id": "in-1F-N10",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 152.8,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-1F-N10"
+      },
+      {
+        "id": "door-1F-S1",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 7.2,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S1",
+        "name": "スーパー・サンプル 入口"
+      },
+      {
+        "id": "in-1F-S1",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 7.2,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S1"
+      },
+      {
+        "id": "door-1F-S2",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 21.6,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S2",
+        "name": "精肉テスト 入口"
+      },
+      {
+        "id": "in-1F-S2",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 21.6,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S2"
+      },
+      {
+        "id": "door-1F-S3",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 36,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S3",
+        "name": "鮮魚モック 入口"
+      },
+      {
+        "id": "in-1F-S3",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 36,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S3"
+      },
+      {
+        "id": "door-1F-S4",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 50.4,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S4",
+        "name": "クリーニング・デモ 入口"
+      },
+      {
+        "id": "in-1F-S4",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 50.4,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S4"
+      },
+      {
+        "id": "door-1F-S5",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 64.8,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S5",
+        "name": "ATMコーナー（サンプル） 入口"
+      },
+      {
+        "id": "in-1F-S5",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 64.8,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S5"
+      },
+      {
+        "id": "door-1F-S6",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 95.2,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S6",
+        "name": "キッズ・テスト 入口"
+      },
+      {
+        "id": "in-1F-S6",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 95.2,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S6"
+      },
+      {
+        "id": "door-1F-S7",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 109.6,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S7",
+        "name": "シューズ・サンプル 入口"
+      },
+      {
+        "id": "in-1F-S7",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 109.6,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S7"
+      },
+      {
+        "id": "door-1F-S8",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 124,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S8",
+        "name": "リカー・モック 入口"
+      },
+      {
+        "id": "in-1F-S8",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 124,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S8"
+      },
+      {
+        "id": "door-1F-S9",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 138.4,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S9",
+        "name": "クリニック・デモ 入口"
+      },
+      {
+        "id": "in-1F-S9",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 138.4,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S9"
+      },
+      {
+        "id": "door-1F-S10",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 152.8,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-1F-S10",
+        "name": "ペット・ダミー 入口"
+      },
+      {
+        "id": "in-1F-S10",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 152.8,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-1F-S10"
+      },
+      {
+        "id": "1F-c-7.2",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 7.2,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-21.6",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 21.6,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-36",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 36,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-50.4",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 50.4,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-64.8",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 64.8,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-95.2",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 95.2,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-109.6",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 109.6,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-124",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 124,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-138.4",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 138.4,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-c-152.8",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 152.8,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "1F-center",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 80,
+        "y": 35,
+        "kind": "normal"
       },
       {
         "id": "ent-west",
         "floorId": "00000000-0000-4000-8000-000000000101",
         "x": 0,
-        "y": 15,
+        "y": 35,
         "kind": "entrance",
         "name": "西口"
       },
       {
         "id": "ent-east",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 60,
-        "y": 15,
+        "x": 160,
+        "y": 35,
         "kind": "entrance",
         "name": "東口"
       },
       {
         "id": "ent-south",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
+        "x": 80,
         "y": 0,
         "kind": "entrance",
         "name": "南口"
       },
       {
-        "id": "c-6.5",
+        "id": "1F-s-plaza",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 6.5,
+        "x": 80,
         "y": 15,
         "kind": "normal"
       },
       {
-        "id": "c-20",
+        "id": "1F-n-hall",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 20,
-        "y": 15,
+        "x": 80,
+        "y": 42,
         "kind": "normal"
       },
       {
-        "id": "c-30",
+        "id": "1F-es-w",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
-        "y": 15,
+        "x": 75.5,
+        "y": 43,
+        "kind": "escalator",
+        "name": "エスカレーター（西）"
+      },
+      {
+        "id": "1F-es-e",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 84.5,
+        "y": 43,
+        "kind": "escalator",
+        "name": "エスカレーター（東）"
+      },
+      {
+        "id": "1F-n-core",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 80,
+        "y": 57,
         "kind": "normal"
       },
       {
-        "id": "c-39.5",
+        "id": "1F-toilet",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 39.5,
-        "y": 15,
-        "kind": "normal"
-      },
-      {
-        "id": "c-53",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 53,
-        "y": 15,
-        "kind": "normal"
-      },
-      {
-        "id": "s-6",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
-        "y": 6,
-        "kind": "normal"
-      },
-      {
-        "id": "n-22",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
-        "y": 22,
-        "kind": "normal"
-      },
-      {
-        "id": "n-25",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
-        "y": 25,
-        "kind": "normal"
-      },
-      {
-        "id": "toilet",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 28,
-        "y": 27,
+        "x": 75,
+        "y": 59,
         "kind": "toilet",
         "name": "トイレ"
       },
       {
-        "id": "stairs",
+        "id": "1F-elevator",
         "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 30,
-        "y": 27,
+        "x": 80,
+        "y": 62,
+        "kind": "elevator",
+        "name": "エレベーター"
+      },
+      {
+        "id": "1F-stairs",
+        "floorId": "00000000-0000-4000-8000-000000000101",
+        "x": 85,
+        "y": 59,
         "kind": "stairs",
         "name": "階段"
       },
       {
-        "id": "elevator",
-        "floorId": "00000000-0000-4000-8000-000000000101",
-        "x": 32,
-        "y": 27,
+        "id": "door-2F-N1",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 7.2,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N1",
+        "name": "ファッション・デモ 入口"
+      },
+      {
+        "id": "in-2F-N1",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 7.2,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N1"
+      },
+      {
+        "id": "door-2F-N2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 21.6,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N2",
+        "name": "メンズ・サンプル 入口"
+      },
+      {
+        "id": "in-2F-N2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 21.6,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N2"
+      },
+      {
+        "id": "door-2F-N3",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 36,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N3",
+        "name": "スポーツ・テスト 入口"
+      },
+      {
+        "id": "in-2F-N3",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 36,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N3"
+      },
+      {
+        "id": "door-2F-N4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 50.4,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N4",
+        "name": "アクセサリー・モック 入口"
+      },
+      {
+        "id": "in-2F-N4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 50.4,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N4"
+      },
+      {
+        "id": "door-2F-N5",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 64.8,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N5",
+        "name": "ヘアサロン・ダミー 入口"
+      },
+      {
+        "id": "in-2F-N5",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 64.8,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N5"
+      },
+      {
+        "id": "door-2F-N6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 95.2,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N6",
+        "name": "おもちゃ・サンプル 入口"
+      },
+      {
+        "id": "in-2F-N6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 95.2,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N6"
+      },
+      {
+        "id": "door-2F-N7",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 109.6,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N7",
+        "name": "家電・テスト 入口"
+      },
+      {
+        "id": "in-2F-N7",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 109.6,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N7"
+      },
+      {
+        "id": "door-2F-N8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 124,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N8",
+        "name": "インテリア・デモ 入口"
+      },
+      {
+        "id": "in-2F-N8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 124,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N8"
+      },
+      {
+        "id": "door-2F-N9",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 138.4,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N9",
+        "name": "バッグ・モック 入口"
+      },
+      {
+        "id": "in-2F-N9",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 138.4,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N9"
+      },
+      {
+        "id": "door-2F-N10",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 152.8,
+        "y": 40,
+        "kind": "store_entrance",
+        "storeId": "store-2F-N10",
+        "name": "時計・ダミー 入口"
+      },
+      {
+        "id": "in-2F-N10",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 152.8,
+        "y": 52,
+        "kind": "normal",
+        "storeId": "store-2F-N10"
+      },
+      {
+        "id": "door-2F-S1",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 7.2,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S1",
+        "name": "ラーメン・テスト 入口"
+      },
+      {
+        "id": "in-2F-S1",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 7.2,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S1"
+      },
+      {
+        "id": "door-2F-S2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 21.6,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S2",
+        "name": "うどん・サンプル 入口"
+      },
+      {
+        "id": "in-2F-S2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 21.6,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S2"
+      },
+      {
+        "id": "door-2F-S3",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 36,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S3",
+        "name": "カレー・デモ 入口"
+      },
+      {
+        "id": "in-2F-S3",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 36,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S3"
+      },
+      {
+        "id": "door-2F-S4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 50.4,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S4",
+        "name": "バーガー・ダミー 入口"
+      },
+      {
+        "id": "in-2F-S4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 50.4,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S4"
+      },
+      {
+        "id": "door-2F-S5",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 64.8,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S5",
+        "name": "クレープ・モック 入口"
+      },
+      {
+        "id": "in-2F-S5",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 64.8,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S5"
+      },
+      {
+        "id": "door-2F-S6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 95.2,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S6",
+        "name": "和食処ためし 入口"
+      },
+      {
+        "id": "in-2F-S6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 95.2,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S6"
+      },
+      {
+        "id": "door-2F-S7",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 109.6,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S7",
+        "name": "イタリアン・サンプル 入口"
+      },
+      {
+        "id": "in-2F-S7",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 109.6,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S7"
+      },
+      {
+        "id": "door-2F-S8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 124,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S8",
+        "name": "中華・テスト 入口"
+      },
+      {
+        "id": "in-2F-S8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 124,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S8"
+      },
+      {
+        "id": "door-2F-S9",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 138.4,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S9",
+        "name": "回転寿司・デモ 入口"
+      },
+      {
+        "id": "in-2F-S9",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 138.4,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S9"
+      },
+      {
+        "id": "door-2F-S10",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 152.8,
+        "y": 30,
+        "kind": "store_entrance",
+        "storeId": "store-2F-S10",
+        "name": "カラオケ・ダミー 入口"
+      },
+      {
+        "id": "in-2F-S10",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 152.8,
+        "y": 18,
+        "kind": "normal",
+        "storeId": "store-2F-S10"
+      },
+      {
+        "id": "2F-c-7.2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 7.2,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-21.6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 21.6,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-36",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 36,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-50.4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 50.4,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-64.8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 64.8,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-95.2",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 95.2,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-109.6",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 109.6,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-124",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 124,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-138.4",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 138.4,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-c-152.8",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 152.8,
+        "y": 35,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-as-w",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 66,
+        "y": 31.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-as-m",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 31.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-as-e",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 94,
+        "y": 31.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-an-w",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 66,
+        "y": 38.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-an-m",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 38.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-an-e",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 94,
+        "y": 38.5,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-n-hall",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 42,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-foodcourt",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 18,
+        "kind": "normal",
+        "name": "フードコート"
+      },
+      {
+        "id": "2F-es-w",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 75.5,
+        "y": 43,
+        "kind": "escalator",
+        "name": "エスカレーター（西）"
+      },
+      {
+        "id": "2F-es-e",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 84.5,
+        "y": 43,
+        "kind": "escalator",
+        "name": "エスカレーター（東）"
+      },
+      {
+        "id": "2F-n-core",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 57,
+        "kind": "normal"
+      },
+      {
+        "id": "2F-toilet",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 75,
+        "y": 59,
+        "kind": "toilet",
+        "name": "トイレ"
+      },
+      {
+        "id": "2F-elevator",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 80,
+        "y": 62,
         "kind": "elevator",
         "name": "エレベーター"
+      },
+      {
+        "id": "2F-stairs",
+        "floorId": "00000000-0000-4000-8000-000000000102",
+        "x": 85,
+        "y": 59,
+        "kind": "stairs",
+        "name": "階段"
       }
     ],
     "edges": [
       {
         "id": "e001",
-        "from": "door-A",
-        "to": "in-A",
+        "from": "door-1F-N1",
+        "to": "in-1F-N1",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e002",
-        "from": "door-B",
-        "to": "in-B",
+        "from": "door-1F-N2",
+        "to": "in-1F-N2",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e003",
-        "from": "door-C",
-        "to": "in-C",
+        "from": "door-1F-N3",
+        "to": "in-1F-N3",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e004",
-        "from": "door-D",
-        "to": "in-D",
+        "from": "door-1F-N4",
+        "to": "in-1F-N4",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e005",
-        "from": "door-E",
-        "to": "in-E",
+        "from": "door-1F-N5",
+        "to": "in-1F-N5",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e006",
-        "from": "door-F",
-        "to": "in-F",
+        "from": "door-1F-N6",
+        "to": "in-1F-N6",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e007",
-        "from": "door-G",
-        "to": "in-G",
+        "from": "door-1F-N7",
+        "to": "in-1F-N7",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e008",
-        "from": "door-H",
-        "to": "in-H",
+        "from": "door-1F-N8",
+        "to": "in-1F-N8",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e009",
-        "from": "ent-west",
-        "to": "c-6.5",
+        "from": "door-1F-N9",
+        "to": "in-1F-N9",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e010",
-        "from": "c-6.5",
-        "to": "c-20",
+        "from": "door-1F-N10",
+        "to": "in-1F-N10",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e011",
-        "from": "c-20",
-        "to": "c-30",
+        "from": "door-1F-S1",
+        "to": "in-1F-S1",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e012",
-        "from": "c-30",
-        "to": "c-39.5",
+        "from": "door-1F-S2",
+        "to": "in-1F-S2",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e013",
-        "from": "c-39.5",
-        "to": "c-53",
+        "from": "door-1F-S3",
+        "to": "in-1F-S3",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e014",
-        "from": "c-53",
-        "to": "ent-east",
+        "from": "door-1F-S4",
+        "to": "in-1F-S4",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e015",
-        "from": "c-30",
-        "to": "s-6",
+        "from": "door-1F-S5",
+        "to": "in-1F-S5",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e016",
-        "from": "s-6",
-        "to": "ent-south",
+        "from": "door-1F-S6",
+        "to": "in-1F-S6",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e017",
-        "from": "c-30",
-        "to": "n-22",
+        "from": "door-1F-S7",
+        "to": "in-1F-S7",
         "direction": "both",
-        "widthM": 6,
+        "widthM": 3,
         "hasSteps": false
       },
       {
         "id": "e018",
-        "from": "n-22",
-        "to": "n-25",
+        "from": "door-1F-S8",
+        "to": "in-1F-S8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e019",
+        "from": "door-1F-S9",
+        "to": "in-1F-S9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e020",
+        "from": "door-1F-S10",
+        "to": "in-1F-S10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e021",
+        "from": "1F-c-7.2",
+        "to": "1F-c-21.6",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e022",
+        "from": "1F-c-21.6",
+        "to": "1F-c-36",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e023",
+        "from": "1F-c-36",
+        "to": "1F-c-50.4",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e024",
+        "from": "1F-c-50.4",
+        "to": "1F-c-64.8",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e025",
+        "from": "1F-c-95.2",
+        "to": "1F-c-109.6",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e026",
+        "from": "1F-c-109.6",
+        "to": "1F-c-124",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e027",
+        "from": "1F-c-124",
+        "to": "1F-c-138.4",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e028",
+        "from": "1F-c-138.4",
+        "to": "1F-c-152.8",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e029",
+        "from": "1F-c-7.2",
+        "to": "door-1F-N1",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e030",
+        "from": "1F-c-21.6",
+        "to": "door-1F-N2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e031",
+        "from": "1F-c-36",
+        "to": "door-1F-N3",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e032",
+        "from": "1F-c-50.4",
+        "to": "door-1F-N4",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e033",
+        "from": "1F-c-64.8",
+        "to": "door-1F-N5",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e034",
+        "from": "1F-c-95.2",
+        "to": "door-1F-N6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e035",
+        "from": "1F-c-109.6",
+        "to": "door-1F-N7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e036",
+        "from": "1F-c-124",
+        "to": "door-1F-N8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e037",
+        "from": "1F-c-138.4",
+        "to": "door-1F-N9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e038",
+        "from": "1F-c-152.8",
+        "to": "door-1F-N10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e039",
+        "from": "1F-c-7.2",
+        "to": "door-1F-S1",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e040",
+        "from": "1F-c-21.6",
+        "to": "door-1F-S2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e041",
+        "from": "1F-c-36",
+        "to": "door-1F-S3",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e042",
+        "from": "1F-c-50.4",
+        "to": "door-1F-S4",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e043",
+        "from": "1F-c-64.8",
+        "to": "door-1F-S5",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e044",
+        "from": "1F-c-95.2",
+        "to": "door-1F-S6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e045",
+        "from": "1F-c-109.6",
+        "to": "door-1F-S7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e046",
+        "from": "1F-c-124",
+        "to": "door-1F-S8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e047",
+        "from": "1F-c-138.4",
+        "to": "door-1F-S9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e048",
+        "from": "1F-c-152.8",
+        "to": "door-1F-S10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e049",
+        "from": "1F-c-64.8",
+        "to": "1F-center",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e050",
+        "from": "1F-center",
+        "to": "1F-c-95.2",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e051",
+        "from": "ent-west",
+        "to": "1F-c-7.2",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e052",
+        "from": "1F-c-152.8",
+        "to": "ent-east",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e053",
+        "from": "1F-center",
+        "to": "1F-s-plaza",
+        "direction": "both",
+        "widthM": 16,
+        "hasSteps": false
+      },
+      {
+        "id": "e054",
+        "from": "1F-s-plaza",
+        "to": "ent-south",
+        "direction": "both",
+        "widthM": 16,
+        "hasSteps": false
+      },
+      {
+        "id": "e055",
+        "from": "1F-center",
+        "to": "1F-n-hall",
+        "direction": "both",
+        "widthM": 16,
+        "hasSteps": false
+      },
+      {
+        "id": "e056",
+        "from": "1F-n-hall",
+        "to": "1F-es-w",
+        "direction": "both",
+        "widthM": 4,
+        "hasSteps": false
+      },
+      {
+        "id": "e057",
+        "from": "1F-n-hall",
+        "to": "1F-es-e",
+        "direction": "both",
+        "widthM": 4,
+        "hasSteps": false
+      },
+      {
+        "id": "e058",
+        "from": "1F-n-hall",
+        "to": "1F-n-core",
         "direction": "both",
         "widthM": 6,
         "hasSteps": false
       },
       {
-        "id": "e019",
-        "from": "n-25",
-        "to": "toilet",
-        "direction": "both",
-        "widthM": 2,
-        "hasSteps": false
-      },
-      {
-        "id": "e020",
-        "from": "n-25",
-        "to": "stairs",
-        "direction": "both",
-        "widthM": 2,
-        "hasSteps": true
-      },
-      {
-        "id": "e021",
-        "from": "n-25",
-        "to": "elevator",
-        "direction": "both",
-        "widthM": 2,
-        "hasSteps": false
-      },
-      {
-        "id": "e022",
-        "from": "c-6.5",
-        "to": "door-A",
+        "id": "e059",
+        "from": "1F-n-core",
+        "to": "1F-toilet",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e023",
-        "from": "c-6.5",
-        "to": "door-E",
+        "id": "e060",
+        "from": "1F-n-core",
+        "to": "1F-elevator",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e024",
-        "from": "c-20",
-        "to": "door-B",
+        "id": "e061",
+        "from": "1F-n-core",
+        "to": "1F-stairs",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e025",
-        "from": "c-20",
-        "to": "door-F",
+        "id": "e062",
+        "from": "door-2F-N1",
+        "to": "in-2F-N1",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e026",
-        "from": "c-39.5",
-        "to": "door-C",
+        "id": "e063",
+        "from": "door-2F-N2",
+        "to": "in-2F-N2",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e027",
-        "from": "c-39.5",
-        "to": "door-G",
+        "id": "e064",
+        "from": "door-2F-N3",
+        "to": "in-2F-N3",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e028",
-        "from": "c-53",
-        "to": "door-D",
+        "id": "e065",
+        "from": "door-2F-N4",
+        "to": "in-2F-N4",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
       },
       {
-        "id": "e029",
-        "from": "c-53",
-        "to": "door-H",
+        "id": "e066",
+        "from": "door-2F-N5",
+        "to": "in-2F-N5",
         "direction": "both",
         "widthM": 3,
         "hasSteps": false
+      },
+      {
+        "id": "e067",
+        "from": "door-2F-N6",
+        "to": "in-2F-N6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e068",
+        "from": "door-2F-N7",
+        "to": "in-2F-N7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e069",
+        "from": "door-2F-N8",
+        "to": "in-2F-N8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e070",
+        "from": "door-2F-N9",
+        "to": "in-2F-N9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e071",
+        "from": "door-2F-N10",
+        "to": "in-2F-N10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e072",
+        "from": "door-2F-S1",
+        "to": "in-2F-S1",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e073",
+        "from": "door-2F-S2",
+        "to": "in-2F-S2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e074",
+        "from": "door-2F-S3",
+        "to": "in-2F-S3",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e075",
+        "from": "door-2F-S4",
+        "to": "in-2F-S4",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e076",
+        "from": "door-2F-S5",
+        "to": "in-2F-S5",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e077",
+        "from": "door-2F-S6",
+        "to": "in-2F-S6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e078",
+        "from": "door-2F-S7",
+        "to": "in-2F-S7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e079",
+        "from": "door-2F-S8",
+        "to": "in-2F-S8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e080",
+        "from": "door-2F-S9",
+        "to": "in-2F-S9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e081",
+        "from": "door-2F-S10",
+        "to": "in-2F-S10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e082",
+        "from": "2F-c-7.2",
+        "to": "2F-c-21.6",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e083",
+        "from": "2F-c-21.6",
+        "to": "2F-c-36",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e084",
+        "from": "2F-c-36",
+        "to": "2F-c-50.4",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e085",
+        "from": "2F-c-50.4",
+        "to": "2F-c-64.8",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e086",
+        "from": "2F-c-95.2",
+        "to": "2F-c-109.6",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e087",
+        "from": "2F-c-109.6",
+        "to": "2F-c-124",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e088",
+        "from": "2F-c-124",
+        "to": "2F-c-138.4",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e089",
+        "from": "2F-c-138.4",
+        "to": "2F-c-152.8",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e090",
+        "from": "2F-c-7.2",
+        "to": "door-2F-N1",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e091",
+        "from": "2F-c-21.6",
+        "to": "door-2F-N2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e092",
+        "from": "2F-c-36",
+        "to": "door-2F-N3",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e093",
+        "from": "2F-c-50.4",
+        "to": "door-2F-N4",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e094",
+        "from": "2F-c-64.8",
+        "to": "door-2F-N5",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e095",
+        "from": "2F-c-95.2",
+        "to": "door-2F-N6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e096",
+        "from": "2F-c-109.6",
+        "to": "door-2F-N7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e097",
+        "from": "2F-c-124",
+        "to": "door-2F-N8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e098",
+        "from": "2F-c-138.4",
+        "to": "door-2F-N9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e099",
+        "from": "2F-c-152.8",
+        "to": "door-2F-N10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e100",
+        "from": "2F-c-7.2",
+        "to": "door-2F-S1",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e101",
+        "from": "2F-c-21.6",
+        "to": "door-2F-S2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e102",
+        "from": "2F-c-36",
+        "to": "door-2F-S3",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e103",
+        "from": "2F-c-50.4",
+        "to": "door-2F-S4",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e104",
+        "from": "2F-c-64.8",
+        "to": "door-2F-S5",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e105",
+        "from": "2F-c-95.2",
+        "to": "door-2F-S6",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e106",
+        "from": "2F-c-109.6",
+        "to": "door-2F-S7",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e107",
+        "from": "2F-c-124",
+        "to": "door-2F-S8",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e108",
+        "from": "2F-c-138.4",
+        "to": "door-2F-S9",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e109",
+        "from": "2F-c-152.8",
+        "to": "door-2F-S10",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e110",
+        "from": "2F-c-64.8",
+        "to": "2F-as-w",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e111",
+        "from": "2F-as-w",
+        "to": "2F-as-m",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e112",
+        "from": "2F-as-m",
+        "to": "2F-as-e",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e113",
+        "from": "2F-as-e",
+        "to": "2F-c-95.2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e114",
+        "from": "2F-c-64.8",
+        "to": "2F-an-w",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e115",
+        "from": "2F-an-w",
+        "to": "2F-an-m",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e116",
+        "from": "2F-an-m",
+        "to": "2F-an-e",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e117",
+        "from": "2F-an-e",
+        "to": "2F-c-95.2",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e118",
+        "from": "2F-an-m",
+        "to": "2F-n-hall",
+        "direction": "both",
+        "widthM": 8,
+        "hasSteps": false
+      },
+      {
+        "id": "e119",
+        "from": "2F-as-m",
+        "to": "2F-foodcourt",
+        "direction": "both",
+        "widthM": 10,
+        "hasSteps": false
+      },
+      {
+        "id": "e120",
+        "from": "2F-n-hall",
+        "to": "2F-es-w",
+        "direction": "both",
+        "widthM": 4,
+        "hasSteps": false
+      },
+      {
+        "id": "e121",
+        "from": "2F-n-hall",
+        "to": "2F-es-e",
+        "direction": "both",
+        "widthM": 4,
+        "hasSteps": false
+      },
+      {
+        "id": "e122",
+        "from": "2F-n-hall",
+        "to": "2F-n-core",
+        "direction": "both",
+        "widthM": 6,
+        "hasSteps": false
+      },
+      {
+        "id": "e123",
+        "from": "2F-n-core",
+        "to": "2F-toilet",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e124",
+        "from": "2F-n-core",
+        "to": "2F-elevator",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e125",
+        "from": "2F-n-core",
+        "to": "2F-stairs",
+        "direction": "both",
+        "widthM": 3,
+        "hasSteps": false
+      },
+      {
+        "id": "e126",
+        "from": "1F-es-w",
+        "to": "2F-es-w",
+        "direction": "forward",
+        "widthM": 1.2,
+        "hasSteps": false,
+        "isVertical": true,
+        "lengthM": 15,
+        "costFactor": 1
+      },
+      {
+        "id": "e127",
+        "from": "2F-es-e",
+        "to": "1F-es-e",
+        "direction": "forward",
+        "widthM": 1.2,
+        "hasSteps": false,
+        "isVertical": true,
+        "lengthM": 15,
+        "costFactor": 1
+      },
+      {
+        "id": "e128",
+        "from": "1F-elevator",
+        "to": "2F-elevator",
+        "direction": "both",
+        "widthM": 1.5,
+        "hasSteps": false,
+        "isVertical": true,
+        "lengthM": 20,
+        "costFactor": 1.5
+      },
+      {
+        "id": "e129",
+        "from": "1F-stairs",
+        "to": "2F-stairs",
+        "direction": "both",
+        "widthM": 1.5,
+        "hasSteps": true,
+        "isVertical": true,
+        "lengthM": 15,
+        "costFactor": 1.3
       }
     ]
   },
   "beacons": [
     {
-      "id": "beacon-1",
+      "id": "beacon-1-1",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 1,
-      "x": 5,
-      "y": 15,
+      "x": 8,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-2",
+      "id": "beacon-1-2",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 2,
-      "x": 15,
-      "y": 15,
+      "x": 24,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-3",
+      "id": "beacon-1-3",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 3,
-      "x": 25,
-      "y": 15,
+      "x": 40,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-4",
+      "id": "beacon-1-4",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 4,
-      "x": 35,
-      "y": 15,
+      "x": 56,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-5",
+      "id": "beacon-1-5",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 5,
-      "x": 45,
-      "y": 15,
+      "x": 72,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-6",
+      "id": "beacon-1-6",
       "floorId": "00000000-0000-4000-8000-000000000101",
       "uuid": "00000000-0000-4000-8000-0000000000be",
       "major": 1,
       "minor": 6,
-      "x": 55,
+      "x": 88,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-7",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 7,
+      "x": 104,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-8",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 8,
+      "x": 120,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-9",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 9,
+      "x": 136,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-10",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 10,
+      "x": 152,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-n",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 11,
+      "x": 80,
+      "y": 55,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-1-s",
+      "floorId": "00000000-0000-4000-8000-000000000101",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 1,
+      "minor": 12,
+      "x": 80,
       "y": 15,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-7",
-      "floorId": "00000000-0000-4000-8000-000000000101",
+      "id": "beacon-2-1",
+      "floorId": "00000000-0000-4000-8000-000000000102",
       "uuid": "00000000-0000-4000-8000-0000000000be",
-      "major": 1,
-      "minor": 7,
-      "x": 30,
-      "y": 5,
+      "major": 2,
+      "minor": 1,
+      "x": 8,
+      "y": 35,
       "z": 2.5,
       "txPower": -59
     },
     {
-      "id": "beacon-8",
-      "floorId": "00000000-0000-4000-8000-000000000101",
+      "id": "beacon-2-2",
+      "floorId": "00000000-0000-4000-8000-000000000102",
       "uuid": "00000000-0000-4000-8000-0000000000be",
-      "major": 1,
+      "major": 2,
+      "minor": 2,
+      "x": 24,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-3",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 3,
+      "x": 40,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-4",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 4,
+      "x": 56,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-5",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 5,
+      "x": 72,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-6",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 6,
+      "x": 88,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-7",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 7,
+      "x": 104,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-8",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
       "minor": 8,
-      "x": 30,
-      "y": 25,
+      "x": 120,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-9",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 9,
+      "x": 136,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-10",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 10,
+      "x": 152,
+      "y": 35,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-n",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 11,
+      "x": 80,
+      "y": 55,
+      "z": 2.5,
+      "txPower": -59
+    },
+    {
+      "id": "beacon-2-s",
+      "floorId": "00000000-0000-4000-8000-000000000102",
+      "uuid": "00000000-0000-4000-8000-0000000000be",
+      "major": 2,
+      "minor": 12,
+      "x": 80,
+      "y": 15,
       "z": 2.5,
       "txPower": -59
     }

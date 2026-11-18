@@ -34,6 +34,7 @@ const K_CONSENT = 'settings:analytics_consent';
 const K_SIM_OFFLINE = 'debug:simulate_offline';
 const K_CLOCK_OFFSET = 'debug:clock_offset_minutes';
 const K_ANON = 'settings:anon_session';
+const K_ORIGIN = 'debug:sample_origin';
 
 export interface AppData {
   ready: boolean;
@@ -63,6 +64,9 @@ export interface AppData {
   now: () => Date;
   anonSessionId: string | null;
   rollbackBundle: () => Promise<boolean>;
+  /** 検証用：【サンプル】施設の配置場所を変える（サンプルデータのみ） */
+  sampleOrigin: { lat: number; lng: number } | null;
+  setSampleOrigin: (v: { lat: number; lng: number } | null) => Promise<void>;
 }
 
 const Ctx = createContext<AppData | null>(null);
@@ -96,6 +100,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
   const [clockOffsetMinutes, setOffsetState] = useState(0);
   const [tick, setTick] = useState(0);
   const [anonSessionId, setAnonSessionId] = useState<string | null>(null);
+  const [sampleOrigin, setSampleOriginState] = useState<{ lat: number; lng: number } | null>(null);
 
   const now = useCallback(() => new Date(Date.now() + offsetRef.current * 60_000), []);
 
@@ -148,6 +153,11 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
       consentRef.current = (await kv.getItem(K_CONSENT)) === 'true';
       simOfflineRef.current = (await kv.getItem(K_SIM_OFFLINE)) === 'true';
       offsetRef.current = Number((await kv.getItem(K_CLOCK_OFFSET)) ?? '0') || 0;
+      try {
+        setSampleOriginState(JSON.parse((await kv.getItem(K_ORIGIN)) ?? 'null'));
+      } catch {
+        setSampleOriginState(null);
+      }
       try {
         anonRef.current = JSON.parse((await kv.getItem(K_ANON)) ?? 'null');
       } catch {
@@ -248,14 +258,27 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     await kvRef.current?.setItem(K_CLOCK_OFFSET, String(v));
   }, []);
 
+  const setSampleOrigin = useCallback(async (v: { lat: number; lng: number } | null) => {
+    setSampleOriginState(v);
+    if (v) await kvRef.current?.setItem(K_ORIGIN, JSON.stringify(v));
+    else await kvRef.current?.removeItem(K_ORIGIN);
+  }, []);
+
   const rollbackBundle = useCallback(async () => {
     const ok = (await syncRef.current?.rollbackToPrevious()) ?? false;
     await reloadFromStorage();
     return ok;
   }, [reloadFromStorage]);
 
+  // 検証用の配置変更は【サンプル】施設にだけ適用する（実データの位置は変えない）
+  const displayBundle = useMemo(
+    () => (bundle && sampleOrigin && bundle.facility.isSample ? { ...bundle, facility: { ...bundle.facility, origin: sampleOrigin } } : bundle),
+    [bundle, sampleOrigin],
+  );
+
   const value = useMemo<AppData>(() => {
     const t = now();
+    const bundle = displayBundle;
     const freshness = bundle
       ? assessRuleFreshness(rules, effectiveFreshnessSettings(rules, bundle.facility.freshness), t)
       : null;
@@ -283,12 +306,14 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
       now,
       anonSessionId,
       rollbackBundle,
+      sampleOrigin,
+      setSampleOrigin,
     };
     // tick は鮮度表示を定期的に再計算するために依存に含める
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     ready,
-    bundle,
+    displayBundle,
     bundleSource,
     bundleSavedAt,
     rules,
@@ -308,6 +333,8 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     now,
     anonSessionId,
     rollbackBundle,
+    sampleOrigin,
+    setSampleOrigin,
     tick,
   ]);
 

@@ -10,6 +10,7 @@
 |---|---|
 | [設計提案書 v1.0](docs/design/00-design-proposal.md) | 全体設計（承認済み） |
 | [Phase 1A 報告書](docs/reports/phase-1a-report.md) | 実装・検証結果・残課題・次の費用 |
+| [デザイン・機能の刷新（11/18）](docs/reports/redesign-2026-11-18.md) | Apple/Google マップ上の屋内図、施設外の機能、2フロアのサンプル施設 |
 | [G1 判断材料](docs/decisions/G1-apple-developer-and-beacons.md) | Apple Developer 登録・BLE発信機 |
 | [Windows 開発環境の準備](docs/setup/01-windows-setup.md) | Node.js / Git / VS Code、iPhone（Expo Go）での表示 |
 | [Supabase の準備](docs/setup/02-supabase-setup.md) | 無料プロジェクト作成とアプリの接続 |
@@ -38,4 +39,4 @@
 
 ## 技術構成
 
-React Native + Expo（TypeScript）／ Supabase（PostgreSQL）／ 屋内マップ：SVG 描画（MapLibre と Phase 1B で比較予定）
+React Native + Expo（TypeScript）／ Supabase（PostgreSQL）／ 地図：iPhone は Apple マップ、Android は Google マップ（react-native-maps）に屋内図を重ねる（ブラウザ版は確認用の簡易表示）

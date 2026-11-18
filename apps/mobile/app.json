@@ -23,7 +23,13 @@
     },
     "plugins": [
       "expo-router",
-      "expo-sqlite"
+      "expo-sqlite",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "現在地を地図に表示し、施設までの経路や施設内での案内に使用します。"
+        }
+      ]
     ],
     "scheme": "facilitynav",
     "experiments": {

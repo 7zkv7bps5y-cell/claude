@@ -7,3 +7,4 @@ export * from './search';
 export * from './outbox';
 export * from './bundle';
 export * from './sync';
+export * from './navigation';

@@ -1,42 +1,21 @@
-import {
-  boundsOf,
-  geometryPoints,
-  pointInRing,
-  ringCentroid,
-  type FacilityBundle,
-  type MapFeature,
-  type RouteResult,
-  type Vec2,
-} from '@facility-nav/core';
-import { useMemo, useRef, useState } from 'react';
-import { PanResponder, Pressable, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
+import { boundsOf, geometryPoints, pointInRing, type MapFeature, type Vec2 } from '@facility-nav/core';
+import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { PanResponder, StyleSheet, View, type LayoutChangeEvent } from 'react-native';
 import Svg, { Circle, G, Line, Polygon, Polyline, Text as SvgText } from 'react-native-svg';
+import { FILL_ORDER, fillColor, floorLabels } from '../lib/mapStyle';
+import { colors } from '../theme';
+import type { FacilityMapHandle, FacilityMapProps } from './FacilityMap.types';
 
 /**
- * 屋内マップの描画（SVG 方式）。
- *
- * Expo Go でも動作する描画方式。Phase 1B で MapLibre（ネイティブ地図）と比較し、
- * 採用方式を決める（設計書 G2）。画面側はこの部品の入出力だけを使うので、差し替えが可能。
- *
- * 座標：データはローカル座標（x=東, y=北, m）。SVG は y が下向きなので、表示時に上下を反転する。
+ * 屋内図の SVG 描画（ブラウザ版での確認用）。
+ * iPhone / Android では FacilityMap.native.tsx（Apple マップ／Google マップ上に重ねる方式）を使う。
+ * 座標はローカル座標（x=東, y=北, m）。SVG は y が下向きなので上下を反転して描く。
  */
 
-export interface IndoorMapProps {
-  bundle: FacilityBundle;
-  floorId: string;
-  selectedStoreId: string | null;
-  route: RouteResult | null;
-  /** 経路の区間のうち、規制で通れない通路線（赤の破線で表示） */
-  blockedEdgeIds: Set<string>;
-  startPoint: Vec2 | null;
-  onStorePress: (storeId: string) => void;
-  onMapPress: (p: Vec2) => void;
-}
-
-const MARGIN_M = 3;
+const MARGIN_M = 6;
 const TAP_SLOP_PX = 8;
 
-export function IndoorMap(props: IndoorMapProps) {
+export const IndoorMap = forwardRef<FacilityMapHandle, FacilityMapProps>(function IndoorMap(props, ref) {
   const { bundle, floorId } = props;
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<{ cx: number; cy: number; scale: number } | null>(null);
@@ -45,27 +24,46 @@ export function IndoorMap(props: IndoorMapProps) {
   const sizeRef = useRef(size);
   sizeRef.current = size;
 
-  const features = useMemo(() => bundle.features.filter((f) => f.floorId === floorId), [bundle, floorId]);
-  const bounds = useMemo(() => boundsOf(features.flatMap((f) => geometryPoints(f.geometry))), [features]);
-  const H = bounds.maxY; // 上下反転用
-  const sv = (p: Vec2) => ({ x: p.x, y: H - p.y });
-  const toWorld = (svgX: number, svgY: number): Vec2 => ({ x: svgX, y: H - svgY });
+  const features = useMemo(
+    () =>
+      bundle.features
+        .filter((f) => f.floorId === floorId && f.kind !== 'parking')
+        .sort((a, b) => FILL_ORDER.indexOf(a.kind) - FILL_ORDER.indexOf(b.kind)),
+    [bundle, floorId],
+  );
+  const bounds = useMemo(
+    () => boundsOf(bundle.features.filter((f) => f.kind === 'building').flatMap((f) => geometryPoints(f.geometry))),
+    [bundle],
+  );
+  const labels = useMemo(() => floorLabels(bundle, floorId), [bundle, floorId]);
+  const H = bounds.maxY;
+  const toWorld = (sx: number, sy: number): Vec2 => ({ x: sx, y: H - sy });
 
-  const fitView = (w: number, h: number) => {
-    const bw = bounds.maxX - bounds.minX + MARGIN_M * 2;
-    const bh = bounds.maxY - bounds.minY + MARGIN_M * 2;
-    const scale = Math.min(w / bw, h / bh);
-    const c = sv({ x: (bounds.minX + bounds.maxX) / 2, y: (bounds.minY + bounds.maxY) / 2 });
-    return { cx: c.x, cy: c.y, scale };
+  const fit = (w: number, h: number, b = bounds) => {
+    const bw = b.maxX - b.minX + MARGIN_M * 2;
+    const bh = b.maxY - b.minY + MARGIN_M * 2;
+    return { cx: (b.minX + b.maxX) / 2, cy: H - (b.minY + b.maxY) / 2, scale: Math.min(w / bw, h / bh) };
   };
+
+  useImperativeHandle(ref, () => ({
+    focusFacility: () => sizeRef.current.w > 0 && setView(fit(sizeRef.current.w, sizeRef.current.h)),
+    focusUser: () => {},
+    focusStore: () => {},
+    focusLatLng: () => {},
+    focusLocalPoints: (pts) => {
+      if (pts.length === 0 || sizeRef.current.w === 0) return;
+      const b = boundsOf(pts);
+      const pad = { minX: b.minX - 10, minY: b.minY - 10, maxX: b.maxX + 10, maxY: b.maxY + 10 };
+      setView(fit(sizeRef.current.w, sizeRef.current.h, pad));
+    },
+  }));
 
   const onLayout = (e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout;
     setSize({ w: width, h: height });
-    if (!viewRef.current && width > 0 && height > 0) setView(fitView(width, height));
+    if (!viewRef.current && width > 0) setView(fit(width, height));
   };
 
-  // 画面上の位置（px）→ ローカル座標（m）
   const screenToWorld = (px: number, py: number): Vec2 | null => {
     const v = viewRef.current;
     const s = sizeRef.current;
@@ -76,15 +74,13 @@ export function IndoorMap(props: IndoorMapProps) {
   const handleTap = (px: number, py: number) => {
     const p = screenToWorld(px, py);
     if (!p) return;
-    const unit = features.find(
-      (f) => f.kind === 'unit' && f.storeId && f.geometry.type === 'Polygon' && pointInRing(p, f.geometry.coordinates[0]!),
-    );
+    const unit = features.find((f) => f.kind === 'unit' && f.storeId && f.geometry.type === 'Polygon' && pointInRing(p, f.geometry.coordinates[0]!));
     const store = unit && bundle.stores.find((s) => s.id === unit.storeId && s.isVisible);
-    if (store) props.onStorePress(store.id);
-    else props.onMapPress(p);
+    if (store) return props.onStorePress(store.id);
+    const b = features.find((f) => f.kind === 'building');
+    if (b && b.geometry.type === 'Polygon' && pointInRing(p, b.geometry.coordinates[0]!)) props.onIndoorPress(p);
   };
 
-  // ドラッグで移動、2本指でズーム、軽いタップで選択
   const gesture = useRef({ startView: view, startDist: 0, moved: false, x0: 0, y0: 0 });
   const responder = useMemo(
     () =>
@@ -92,246 +88,123 @@ export function IndoorMap(props: IndoorMapProps) {
         onStartShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponder: () => true,
         onPanResponderGrant: (e) => {
-          gesture.current = {
-            startView: viewRef.current,
-            startDist: 0,
-            moved: false,
-            x0: e.nativeEvent.locationX,
-            y0: e.nativeEvent.locationY,
-          };
+          gesture.current = { startView: viewRef.current, startDist: 0, moved: false, x0: e.nativeEvent.locationX, y0: e.nativeEvent.locationY };
         },
         onPanResponderMove: (e, g) => {
           const st = gesture.current;
-          const sv0 = st.startView;
-          if (!sv0) return;
-          const touches = e.nativeEvent.touches;
-          if (touches.length >= 2) {
-            const [a, b] = [touches[0]!, touches[1]!];
-            const d = Math.hypot(a.pageX - b.pageX, a.pageY - b.pageY);
+          const v0 = st.startView;
+          if (!v0) return;
+          const t = e.nativeEvent.touches;
+          if (t.length >= 2) {
+            const d = Math.hypot(t[0]!.pageX - t[1]!.pageX, t[0]!.pageY - t[1]!.pageY);
             if (st.startDist === 0) {
               st.startDist = d;
               st.startView = viewRef.current;
               return;
             }
             st.moved = true;
-            const scale = clampScale((st.startView?.scale ?? sv0.scale) * (d / st.startDist));
+            const scale = Math.max(1, Math.min(60, (st.startView?.scale ?? v0.scale) * (d / st.startDist)));
             setView((v) => (v ? { ...v, scale } : v));
             return;
           }
           if (Math.abs(g.dx) + Math.abs(g.dy) > TAP_SLOP_PX) st.moved = true;
-          if (st.moved && st.startDist === 0) {
-            setView({ cx: sv0.cx - g.dx / sv0.scale, cy: sv0.cy - g.dy / sv0.scale, scale: sv0.scale });
-          }
+          if (st.moved && st.startDist === 0) setView({ cx: v0.cx - g.dx / v0.scale, cy: v0.cy - g.dy / v0.scale, scale: v0.scale });
         },
         onPanResponderRelease: () => {
-          const st = gesture.current;
-          if (!st.moved) handleTap(st.x0, st.y0);
+          if (!gesture.current.moved) handleTap(gesture.current.x0, gesture.current.y0);
         },
       }),
-    // handleTap は最新の features/bundle を参照するため依存に含める
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [features, bundle, props.onStorePress, props.onMapPress],
+    [features, bundle, props.onStorePress, props.onIndoorPress],
   );
 
-  const zoom = (f: number) => setView((v) => (v ? { ...v, scale: clampScale(v.scale * f) } : v));
-
-  const vb = view && size.w > 0 ? viewBox(view, size) : '0 0 1 1';
-  const s = view?.scale ?? 10;
-  const px = (n: number) => n / s; // 画面上の px をメートルに換算（線の太さ・文字サイズを一定に保つ）
-
+  const s = view?.scale ?? 4;
+  const px = (n: number) => n / s;
+  const vb = view && size.w > 0 ? `${view.cx - size.w / s / 2} ${view.cy - size.h / s / 2} ${size.w / s} ${size.h / s}` : '0 0 1 1';
   const catColor = new Map(bundle.categories.map((c) => [c.id, c.color]));
   const storeById = new Map(bundle.stores.map((st) => [st.id, st]));
   const nodes = new Map(bundle.nav.nodes.map((n) => [n.id, n]));
-
-  const poly = (f: MapFeature) =>
-    f.geometry.type === 'Polygon'
-      ? f.geometry.coordinates[0]!.map(([x, y]) => `${x},${H - y}`).join(' ')
-      : '';
+  const pts = (f: MapFeature) => (f.geometry.type === 'Polygon' ? f.geometry.coordinates[0]!.map(([x, y]) => `${x},${H - y}`).join(' ') : '');
+  const routePts = props.route?.path.filter((p) => p.floorId === floorId) ?? [];
+  const dest = props.route?.path[props.route.path.length - 1];
 
   return (
     <View style={styles.container} onLayout={onLayout} testID="indoor-map">
       <View style={StyleSheet.absoluteFill} {...responder.panHandlers}>
         {view && size.w > 0 && (
           <Svg width={size.w} height={size.h} viewBox={vb}>
-            {/* 通路 */}
-            {features
-              .filter((f) => f.kind === 'corridor')
-              .map((f) => (
-                <Polygon key={f.id} points={poly(f)} fill="#EEF1F5" />
-              ))}
-            {/* 店舗区画 */}
-            {features
-              .filter((f) => f.kind === 'unit')
-              .map((f) => {
+            {features.map((f) => {
+              if (f.geometry.type !== 'Polygon') return null;
+              if (f.kind === 'unit') {
                 const st = f.storeId ? storeById.get(f.storeId) : undefined;
-                const selected = st && st.id === props.selectedStoreId;
-                const color = (st && catColor.get(st.categoryId)) ?? '#CCCCCC';
+                if (!st || !st.isVisible) return null;
+                const sel = st.id === props.selectedStoreId;
+                const dim = props.highlightStoreIds && !props.highlightStoreIds.has(st.id);
                 return (
                   <Polygon
                     key={f.id}
-                    points={poly(f)}
-                    fill={color}
-                    fillOpacity={selected ? 0.75 : 0.35}
-                    stroke={selected ? '#1A56DB' : 'none'}
+                    points={pts(f)}
+                    fill={catColor.get(st.categoryId) ?? '#999'}
+                    fillOpacity={sel ? 0.75 : dim ? 0.08 : 0.32}
+                    stroke={sel ? colors.primary : 'none'}
                     strokeWidth={px(3)}
                   />
                 );
-              })}
-            {/* 設備（トイレ・階段・エレベーター） */}
+              }
+              return (
+                <Polygon
+                  key={f.id}
+                  points={pts(f)}
+                  fill={fillColor(f.kind)}
+                  stroke={f.kind === 'building' ? colors.buildingStroke : f.kind === 'atrium' ? '#8FA7C4' : 'none'}
+                  strokeWidth={px(1.5)}
+                  strokeDasharray={f.kind === 'atrium' ? `${px(4)},${px(3)}` : undefined}
+                />
+              );
+            })}
             {features
-              .filter((f) => f.kind === 'toilet' || f.kind === 'stairs' || f.kind === 'elevator' || f.kind === 'escalator')
-              .map((f) => (
-                <Polygon key={f.id} points={poly(f)} fill="#D9D9D9" stroke="#9E9E9E" strokeWidth={px(1)} />
-              ))}
-            {/* 壁 */}
-            {features
-              .filter((f) => f.kind === 'wall' && f.geometry.type === 'LineString')
+              .filter((f) => f.kind === 'wall')
               .map((f) =>
                 f.geometry.type === 'LineString' ? (
-                  <Polyline
-                    key={f.id}
-                    points={f.geometry.coordinates.map(([x, y]) => `${x},${H - y}`).join(' ')}
-                    stroke="#37474F"
-                    strokeWidth={px(3)}
-                    fill="none"
-                    strokeLinecap="round"
-                  />
+                  <Polyline key={f.id} points={f.geometry.coordinates.map(([x, y]) => `${x},${H - y}`).join(' ')} stroke={colors.wall} strokeWidth={px(1.5)} fill="none" />
                 ) : null,
               )}
-            {/* 規制で通れない通路線 */}
             {bundle.nav.edges
               .filter((e) => props.blockedEdgeIds.has(e.id))
               .map((e) => {
                 const a = nodes.get(e.from);
                 const b = nodes.get(e.to);
-                if (!a || !b || a.floorId !== floorId) return null;
+                if (!a || !b || a.floorId !== floorId || b.floorId !== floorId) return null;
                 return (
-                  <Line
-                    key={`blk-${e.id}`}
-                    x1={a.x}
-                    y1={H - a.y}
-                    x2={b.x}
-                    y2={H - b.y}
-                    stroke="#D32F2F"
-                    strokeWidth={px(4)}
-                    strokeDasharray={`${px(6)},${px(4)}`}
-                  />
+                  <Line key={`blk-${e.id}`} x1={a.x} y1={H - a.y} x2={b.x} y2={H - b.y} stroke={colors.danger} strokeWidth={px(4)} strokeDasharray={`${px(6)},${px(4)}`} />
                 );
               })}
-            {/* 経路 */}
-            {props.route && (
-              <Polyline
-                points={props.route.path
-                  .filter((p) => p.floorId === floorId)
-                  .map((p) => `${p.x},${H - p.y}`)
-                  .join(' ')}
-                stroke="#1A56DB"
-                strokeWidth={px(6)}
-                fill="none"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              />
+            {routePts.length > 1 && (
+              <Polyline points={routePts.map((p) => `${p.x},${H - p.y}`).join(' ')} stroke={colors.route} strokeWidth={px(6)} fill="none" strokeLinejoin="round" strokeLinecap="round" />
             )}
-            {/* 店舗名・設備名 */}
-            {features
-              .filter((f) => f.name && f.geometry.type === 'Polygon')
-              .map((f) => {
-                const ring = f.geometry.type === 'Polygon' ? f.geometry.coordinates[0]! : [];
-                const c = sv(ringCentroid(ring));
-                const label = SHORT_LABEL[f.kind] ?? f.name!;
-                const w = boundsOf(ring.map(([x, y]) => ({ x, y })));
-                // 区画の幅に収まる文字サイズ（最大は画面上 12px 相当）
-                const size = Math.min(px(f.kind === 'unit' ? 12 : 10), ((w.maxX - w.minX) * 0.9) / label.length);
-                return (
-                  <SvgText key={`t-${f.id}`} x={c.x} y={c.y + size / 3} fontSize={size} fill="#263238" textAnchor="middle">
-                    {label}
-                  </SvgText>
-                );
-              })}
-            {/* 出入口 */}
-            {features
-              .filter((f) => f.kind === 'entrance' && f.geometry.type === 'Point')
-              .map((f) => {
-                const p = f.geometry.type === 'Point' ? sv({ x: f.geometry.coordinates[0], y: f.geometry.coordinates[1] }) : { x: 0, y: 0 };
-                return (
-                  <G key={`e-${f.id}`}>
-                    <Circle cx={p.x} cy={p.y} r={px(7)} fill="#2E7D32" />
-                    <SvgText x={p.x} y={p.y - px(10)} fontSize={px(11)} fill="#2E7D32" textAnchor="middle">
-                      {f.name}
-                    </SvgText>
-                  </G>
-                );
-              })}
-            {/* 出発地 */}
-            {props.startPoint && (
+            {labels.map((l) => {
+              if (l.kind === 'unit' && props.highlightStoreIds && l.storeId && !props.highlightStoreIds.has(l.storeId)) return null;
+              const fs = px(l.kind === 'unit' ? 10 : 9);
+              return (
+                <SvgText key={l.id} x={l.at.x} y={H - l.at.y + fs / 3} fontSize={fs} fill={l.kind === 'entrance' ? colors.ok : colors.text} textAnchor="middle">
+                  {l.text}
+                </SvgText>
+              );
+            })}
+            {props.start && props.start.floorId === floorId && (
               <G>
-                <Circle cx={props.startPoint.x} cy={H - props.startPoint.y} r={px(10)} fill="#1A56DB" fillOpacity={0.2} />
-                <Circle
-                  cx={props.startPoint.x}
-                  cy={H - props.startPoint.y}
-                  r={px(5)}
-                  fill="#1A56DB"
-                  stroke="#FFFFFF"
-                  strokeWidth={px(2)}
-                />
+                <Circle cx={props.start.point.x} cy={H - props.start.point.y} r={px(11)} fill={colors.primary} fillOpacity={0.2} />
+                <Circle cx={props.start.point.x} cy={H - props.start.point.y} r={px(6)} fill={colors.primary} stroke="#fff" strokeWidth={px(2)} />
               </G>
             )}
+            {dest && dest.floorId === floorId && <Circle cx={dest.x} cy={H - dest.y} r={px(7)} fill={colors.danger} stroke="#fff" strokeWidth={px(2)} />}
           </Svg>
         )}
       </View>
-      <View style={styles.zoomBox} pointerEvents="box-none">
-        <Pressable accessibilityLabel="拡大" style={styles.zoomBtn} onPress={() => zoom(1.4)}>
-          <Text style={styles.zoomText}>＋</Text>
-        </Pressable>
-        <Pressable accessibilityLabel="縮小" style={styles.zoomBtn} onPress={() => zoom(1 / 1.4)}>
-          <Text style={styles.zoomText}>－</Text>
-        </Pressable>
-        <Pressable
-          accessibilityLabel="全体表示"
-          style={styles.zoomBtn}
-          onPress={() => size.w > 0 && setView(fitView(size.w, size.h))}
-        >
-          <Text style={styles.zoomTextSmall}>全体</Text>
-        </Pressable>
-      </View>
     </View>
   );
-}
-
-/** 狭い設備区画に表示する短い名前 */
-const SHORT_LABEL: Partial<Record<MapFeature['kind'], string>> = {
-  toilet: 'WC',
-  elevator: 'EV',
-  stairs: '階段',
-  escalator: 'ES',
-};
-
-function clampScale(s: number) {
-  return Math.max(2, Math.min(200, s));
-}
-
-function viewBox(v: { cx: number; cy: number; scale: number }, size: { w: number; h: number }) {
-  const w = size.w / v.scale;
-  const h = size.h / v.scale;
-  return `${v.cx - w / 2} ${v.cy - h / 2} ${w} ${h}`;
-}
+});
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FAFAFA', overflow: 'hidden' },
-  zoomBox: { position: 'absolute', right: 12, top: 12, gap: 8 },
-  zoomBtn: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 3,
-  },
-  zoomText: { fontSize: 22, color: '#263238' },
-  zoomTextSmall: { fontSize: 12, color: '#263238' },
+  container: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: '#EEF0F3', overflow: 'hidden' },
 });

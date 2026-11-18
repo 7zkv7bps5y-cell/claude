@@ -34,6 +34,12 @@ export interface FacilityInfo {
   /** ローカル座標の y 軸が真北から時計回りに何度回っているか */
   rotationDeg: number;
   freshness: RuleFreshnessSettings;
+  /** 敷地の範囲（ローカル座標の多角形）。屋内・屋外の自動切替に使う */
+  boundary?: [number, number][];
+  /** 施設外からの経路案内（地図アプリ）の目的地にする出入口の通路点 */
+  mainEntranceNodeId?: string;
+  /** 施設の住所（表示用） */
+  address?: string;
 }
 
 export interface Floor {
@@ -53,6 +59,10 @@ export type FeatureKind =
   | 'escalator'
   | 'toilet'
   | 'obstacle'
+  | 'building' // 建物の外形（フロアの床面）
+  | 'atrium' // 吹き抜け（通行不可）
+  | 'parking' // 駐車場（屋外）
+  | 'info' // インフォメーション
   | 'facility_other';
 
 export type Geometry =

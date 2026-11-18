@@ -49,7 +49,7 @@ function edgeLength(e: NavEdge, a: NavNode, b: NavNode): number {
 
 function wallSegments(bundle: FacilityBundle, floorId: string): [Vec2, Vec2][] {
   return bundle.features
-    .filter((f) => f.floorId === floorId && (f.kind === 'wall' || f.kind === 'obstacle'))
+    .filter((f) => f.floorId === floorId && (f.kind === 'wall' || f.kind === 'obstacle' || f.kind === 'atrium'))
     .flatMap((f) => geometrySegments(f.geometry));
 }
 

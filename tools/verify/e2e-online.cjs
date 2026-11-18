@@ -22,14 +22,20 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('dialog', (d) => d.accept());
-  const banner = async () => (await page.getByTestId('status-banner').innerText()).replace(/\n/g, ' | ');
+  const banner = async () => {
+    await page.getByTestId('status-banner').click(); // 詳細を開く
+    const t = (await page.getByTestId('status-banner').innerText()).replace(/\n/g, ' | ');
+    await page.getByTestId('status-banner').click();
+    return t;
+  };
   const gotoDebug = async () => {
-    await page.getByText('検証', { exact: true }).click();
+    await page.getByLabel('検証画面を開く').click();
     await page.getByTestId('debug-screen').waitFor();
   };
   const back = async () => {
     await page.goBack();
     await page.getByTestId('indoor-map').waitFor();
+    await page.waitForTimeout(300);
   };
   const refreshNow = async () => {
     await gotoDebug();
@@ -41,12 +47,16 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   };
   const routeTo = async (name) => {
     await page.getByTestId('search-input').fill(name);
-    await page.getByText(name).first().click();
+    await page.getByTestId('search-results').getByText(name).first().click();
     await page.getByTestId('route-button').click();
-    await page.waitForTimeout(500);
-    return (await page.getByTestId('store-card').innerText()).replace(/\n/g, ' | ');
+    await page.getByTestId('route-card').waitFor();
+    await page.waitForTimeout(300);
+    return (await page.getByTestId('route-card').innerText()).replace(/\n/g, ' | ');
   };
-  const closeCard = async () => page.getByLabel('閉じる').click();
+  const closeCard = async () => {
+    await page.getByLabel('案内を終了').click();
+    await page.getByLabel('閉じる').click();
+  };
 
   // 1) 初回起動：サーバーから取得して端末に保存
   await page.goto(APP);
@@ -57,12 +67,12 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   await page.screenshot({ path: `${OUT}/10-online.png` });
 
   // 2) 通行止めを追加 → 更新 → 経路に反映
-  let card = await routeTo('ファッション・デモ');
-  check('2a. 規制なしでは西口→ファッション・デモの経路が出る', card.includes('徒歩約') && !card.includes('参考案内'), card);
+  let card = await routeTo('カフェ・テスト');
+  check('2a. 規制なしでは南口→カフェ・テストの経路が出る', card.includes('徒歩約') && !card.includes('参考案内'), card);
   await closeCard();
-  await db.query(`insert into route_rules (facility_id, kind, severity, edge_ids, note) values ($1, 'closed', 'normal', '{e011}', '【テスト】通行止め')`, [FAC]);
+  await db.query(`insert into route_rules (facility_id, kind, severity, edge_ids, note) values ($1, 'closed', 'normal', '{e022}', '【テスト】通行止め')`, [FAC]);
   await refreshNow();
-  card = await routeTo('ファッション・デモ');
+  card = await routeTo('カフェ・テスト');
   check('2b. 通行止め（公開操作なし）が即時反映され、経路なしと案内', card.includes('通行できる経路が見つかりません'), card);
   await page.screenshot({ path: `${OUT}/11-closed.png` });
   await closeCard();
@@ -70,18 +80,18 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   // 3) 期間つきの一時封鎖（開始前）→ オフラインのまま時刻経過で自動適用
   await db.query(`delete from route_rules`);
   await db.query(
-    `insert into route_rules (facility_id, kind, severity, edge_ids, starts_at, ends_at) values ($1, 'temporary_closure', 'normal', '{e011}', now() + interval '20 minutes', now() + interval '3 hours')`,
+    `insert into route_rules (facility_id, kind, severity, edge_ids, starts_at, ends_at) values ($1, 'temporary_closure', 'normal', '{e022}', now() + interval '20 minutes', now() + interval '3 hours')`,
     [FAC],
   );
   await refreshNow();
   await setMode('down');
-  card = await routeTo('ファッション・デモ');
+  card = await routeTo('カフェ・テスト');
   check('3a. 開始前の一時封鎖は適用されない', card.includes('徒歩約'), card);
   await closeCard();
   await gotoDebug();
   await page.getByText('+30分').click();
   await back();
-  card = await routeTo('ファッション・デモ');
+  card = await routeTo('カフェ・テスト');
   check('3b. オフラインでも開始時刻を過ぎた一時封鎖は端末内で自動適用', card.includes('通行できる経路が見つかりません'), card);
   b = await banner();
   check('3c. 最終取得から30分経過で「注意」＋最終取得日時を表示', b.includes('規制情報：注意') && b.includes('最終取得'), b);
@@ -89,7 +99,7 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   await gotoDebug();
   await page.getByText('+7時間').click();
   await back();
-  card = await routeTo('ファッション・デモ');
+  card = await routeTo('カフェ・テスト');
   b = await banner();
   check('3d. 7時間後：期限切れの封鎖は自動解除、鮮度は「制限」で参考案内', card.includes('徒歩約') && card.includes('参考案内') && b.includes('規制情報：制限'), `${b} || ${card}`);
   await page.screenshot({ path: `${OUT}/12-restricted.png` });
@@ -111,7 +121,7 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   await page.getByText('現在', { exact: true }).click();
   await back();
   await db.query(`delete from route_rules`);
-  await db.query(`insert into route_rules (facility_id, kind, severity, edge_ids, note) values ($1, 'closed', 'high', '{e029}', '【テスト】重要')`, [FAC]);
+  await db.query(`insert into route_rules (facility_id, kind, severity, edge_ids, note) values ($1, 'closed', 'high', '{e051}', '【テスト】重要')`, [FAC]);
   await refreshNow();
   await gotoDebug();
   await page.getByText('+2時間').click();
@@ -182,7 +192,7 @@ const eventCount = async () => Number((await db.query('select count(*) from anal
   // 10) 新しい版の公開 → 更新。壊れた版は保存しない
   const snap = (await db.query(`select snapshot from map_versions where facility_id = $1 and version_no = 1`, [FAC])).rows[0].snapshot;
   snap.version.versionNo = 2;
-  snap.stores.find((s) => s.id === 'store-B').name = 'カフェ・テスト（改装後）';
+  snap.stores.find((s) => s.id === 'store-1F-N2').name = 'カフェ・テスト（改装後）';
   await db.query(`update map_versions set status = 'archived' where facility_id = $1`, [FAC]);
   await db.query(`insert into map_versions (facility_id, version_no, status, snapshot) values ($1, 2, 'published', $2)`, [FAC, snap]);
   await page.getByText('今すぐ更新を確認').click();

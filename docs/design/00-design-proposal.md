@@ -4,6 +4,7 @@
 - 作成：Claude Code（メイン開発担当）
 - 更新日：2026-11-15
 - ステータス：**承認済み（2026-11-16、D1〜D5）。Phase 1A 実施済み → `docs/reports/phase-1a-report.md`**
+- 追記（2026-11-18）：依頼者の要望により地図の第一候補を Apple マップ／Google マップ（react-native-maps）に変更（承認待ち）→ `docs/reports/redesign-2026-11-18.md`
 - 追記：v1.0 承認時の追加確認事項（BLE検証の区別・プライバシー）を 6-8・5-4 に追記
 - レビュー依頼先：ChatGPT（設計・品質確認）、Gemini（技術調査・追加レビュー）
 - 前版：v0.1（Gitの履歴に保存されています）

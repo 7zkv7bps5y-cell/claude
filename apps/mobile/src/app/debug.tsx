@@ -3,6 +3,7 @@ import { useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { hasServer } from '../config';
 import { useAppData } from '../data/AppDataContext';
+import { currentPositionOnce } from '../data/useLocation';
 import { notify } from '../lib/dialog';
 import { formatDateTime } from '../lib/format';
 
@@ -52,6 +53,31 @@ export default function DebugScreen() {
           onPress={() => run(async () => notify('直前の版に戻す', (await d.rollbackBundle()) ? '戻しました' : '戻せる版がありません'))}
           disabled={busy}
         />
+      </Section>
+
+      <Section title="【サンプル】施設の配置場所">
+        <Text style={styles.note}>
+          施設外→施設内の切り替えを試すため、架空の施設を現在地の近くに移動できます（サンプルデータのみ。あなたの現在地が施設の南側の駐車場にくる位置に置きます）。
+        </Text>
+        <Row k="配置" v={d.sampleOrigin ? `現在地付近（${d.sampleOrigin.lat.toFixed(4)}, ${d.sampleOrigin.lng.toFixed(4)}）` : '初期位置'} />
+        <Button
+          label="サンプル施設を現在地へ移動"
+          disabled={busy}
+          onPress={() =>
+            run(async () => {
+              const p = await currentPositionOnce();
+              if (!p) return notify('現在地を取得できません', '地図画面で「現在地を使いますか？」の「許可する」を押してから、もう一度お試しください。（ブラウザ版では使えません）');
+              // 現在地がローカル座標 (80, -30)＝南口の前の駐車場 になるよう原点を決める
+              const R = 6378137;
+              const DEG = Math.PI / 180;
+              const lat = p.latitude - -30 / R / DEG;
+              const lng = p.longitude - 80 / (R * Math.cos(lat * DEG)) / DEG;
+              await d.setSampleOrigin({ lat, lng });
+              notify('移動しました', '地図画面に戻ると、施設が現在地のすぐ北側に表示されます。');
+            })
+          }
+        />
+        <Button label="初期位置に戻す" disabled={busy || !d.sampleOrigin} onPress={() => run(() => d.setSampleOrigin(null))} />
       </Section>
 
       <Section title="通行規制情報と鮮度">
