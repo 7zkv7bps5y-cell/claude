@@ -93,7 +93,7 @@ npm install
 npm test
 ```
 
-- `Tests  54 passed` と `Tests  6 passed` のように **failed が 0** なら成功です（件数は今後増えることがあります）
+- `Tests  55 passed` と `Tests  12 passed` のように **failed が 0** なら成功です（件数は今後増えることがあります）
 
 > データベースのテスト（`scripts/db-test.sh`）は Windows では動かしません。GitHub に保存するたびに自動で実行されます（GitHub のリポジトリ画面の「Actions」タブで結果を見られます）。
 
